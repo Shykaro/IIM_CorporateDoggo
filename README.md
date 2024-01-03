@@ -4,7 +4,7 @@ Interactive Website Project for IIM
 Todos:
 - Corporate Design bzw Web Page anordnung festlegen
 - Website grundstein erstellen (html, css und js)
-- Einzelne Steps (des Users) priorisieren und anfangen zu einzuprogrammieren
+- Einzelne Steps (des Users) priorisieren und anfangen einzuprogrammieren
 - Werkschau Anmelden
 - Companion zum Durchführen ausarbeiten / idee zur Interessenweckung ausarbeiten
 - ...
