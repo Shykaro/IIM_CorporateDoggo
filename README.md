@@ -14,6 +14,8 @@ Ideas for Companion / Interesthook
 - "Save the corporate doggo" -> as hook. Companion will help you save the doggo step by step (by completing Company tasks)
 - ...
 
+Hier bitte die Priorisierung der Tasks einfügen, die Tasks werden dann nach unserer Prio umgesetzt. (Bsp1.: Wir haben beide Cookies auf 1, dann setzen wir auf jedenfall cookies schonmal um. Bsp2.: Ich werbebanner 9, du werbebanner 8, => unwichtig wird als eins der letzten umgesetzt, wenn die Zeit reicht):
+
 Priorisierung der möglichen Tasks (Alex)
 1. “hier hast du als Belohnung einen Cookie -> (Alle akzeptieren)”
 2. Erstelle deinen Avatar/Formular ausfüllen
