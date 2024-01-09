@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Company</title>
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="script.js"></script>-->
 </head>
-<body>
-    
+
+<body class="background">
+
+    <div id="transcript">ello</div>
+
+    <script>
+        const speechRecognition = window.speechRecognition;
+        const recognition = new SpeechRecognition();
+        recognition.start();
+
+        recognition.onresult = event => {
+            const lastResult = event.results[event.results.length - 1];
+            transcript.innerHTML = lastResult[0];
+        }
+
+    </script>
+
 </body>
+
 </html>

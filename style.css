@@ -1,0 +1,16 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.background {
+    background-color: rgb(105, 105, 240);
+    height: 100vh;
+    width: 100vw;
+}
+
+.pad-20 {
+    padding: 0 20px 0 20px;
+}
+
