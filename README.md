@@ -43,7 +43,8 @@ Priorisierung der möglichen Tasks (Felix)
 
 Presentation:
 https://docs.google.com/presentation/d/1105-nsVjglXTFYe7GPZ3OENbF8G6tIHzFGUPT1iiFiI/edit#slide=id.p
-
+Figma:
+https://www.figma.com/file/X1O4FjI40UDYwAEHg5TKrX/HappyCorporate?node-id=22%3A11&mode=dev
 
 Sourcematerial & References/Ideas:
 - https://www.youtube.com/watch?v=wX9Sc88qreg&list=PLE4D1C79527C91570 Valve - Aperture Investment Opportunity #4: "Boots"
