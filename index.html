@@ -6,25 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Company</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link rel="stylesheet" href="globals.css" />
     <!--<script src="script.js"></script>-->
 </head>
 
-<body class="background">
-
-    <div id="transcript">ello</div>
-
-    <script>
-        const speechRecognition = window.speechRecognition;
-        const recognition = new SpeechRecognition();
-        recognition.start();
-
-        recognition.onresult = event => {
-            const lastResult = event.results[event.results.length - 1];
-            transcript.innerHTML = lastResult[0];
-        }
-
-    </script>
-
+<body>
+    <div class="landing-page">
+        <div class="div">
+            <div class="overlap-group">
+                <div class="text-wrapper">Hilf Max dem Hund!</div>
+                <p class="p">sponsored by The Happy Company</p>
+            </div>
+            <div class="start-btn">Start</div>
+        </div>
+    </div>
 </body>
 
 </html>
