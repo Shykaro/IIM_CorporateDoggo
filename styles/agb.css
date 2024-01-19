@@ -1,0 +1,203 @@
+.AGB-page {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.AGB-page .overlap-wrapper {
+    width: 1920px;
+    height: 1080px;
+}
+
+.AGB-page .overlap {
+    position: relative;
+    height: 1080px;
+}
+
+.AGB-page .AGB-BG {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgb(22, 240, 232) 0%, rgb(90, 198, 253) 51.42%, rgb(255, 170, 236) 100%);
+}
+
+.AGB-page .rectangle {
+    position: absolute;
+    width: 874px;
+    height: 1022px;
+    top: 29px;
+    left: 523px;
+    border-radius: 65px;
+    box-shadow: 0px 4px 4px #00000040;
+    background: linear-gradient(180deg,
+            rgb(255, 0, 0) 0%,
+            rgb(255, 102.82, 0) 37.5%,
+            rgb(255, 198.41, 142.38) 74.5%,
+            rgb(255, 214.2, 0) 100%);
+}
+
+.AGB-page .div {
+    position: absolute;
+    width: 815px;
+    height: 960px;
+    top: 60px;
+    left: 552px;
+    background-color: #ffffff;
+    border-radius: 34px;
+}
+
+.AGB-page .text-wrapper {
+    position: absolute;
+    top: 76px;
+    left: 919px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: justify;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.AGB-page .rectangle-2 {
+    position: absolute;
+    width: 19px;
+    height: 315px;
+    top: 97px;
+    left: 1336px;
+    background-color: #ffcece;
+    border-radius: 30px;
+}
+
+.AGB-page .rectangle-3 {
+    position: absolute;
+    width: 743px;
+    height: 792px;
+    top: 136px;
+    left: 579px;
+    background-color: #eaeaea;
+    box-shadow: inset 0px 4px 4px #00000040;
+}
+
+.AGB-page .lorem-ipsum-dolor {
+    position: absolute;
+    width: 721px;
+    top: 148px;
+    left: 589px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 12px;
+    text-align: justify;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.AGB-page .rectangle-4 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    top: 949px;
+    left: 1010px;
+    background-color: #aeaeae;
+    border: 1px solid;
+    border-color: #000000;
+}
+
+.AGB-page .rectangle-5 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    top: 949px;
+    left: 659px;
+    background-color: #d9d9d9;
+    border: 1px solid;
+    border-color: #000000;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.AGB-page .text-wrapper-2 {
+    position: absolute;
+    top: 949px;
+    left: 693px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 32px;
+    text-align: justify;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.AGB-page .text-wrapper-3 {
+    position: absolute;
+    top: 949px;
+    left: 1053px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #dedede;
+    font-size: 32px;
+    text-align: justify;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.AGB-page .group {
+    position: absolute;
+    width: 134px;
+    height: 143px;
+    top: 909px;
+    left: 1744px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.AGB-page .overlap-group {
+    position: relative;
+    height: 143px;
+}
+
+.AGB-page .ellipse {
+    position: absolute;
+    width: 119px;
+    height: 119px;
+    top: 24px;
+    left: 7px;
+    border-radius: 59.5px;
+    background: linear-gradient(180deg, rgb(255, 193.37, 241.44) 0%, rgba(217, 217, 217, 0) 100%);
+}
+
+.AGB-page .happy-user-cut {
+    position: absolute;
+    width: 134px;
+    height: 134px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.AGB-page .rectangle-6 {
+    position: absolute;
+    top: 919px;
+    left: 1695px;
+    background-color: #e2f8ff;
+    border-radius: 3px;
+    box-shadow: 0px 0.48px 0.48px #00000040;
+    opacity: 0;
+}
+
+.AGB-page .span {
+    font-family: "Pacifico-Regular", Helvetica;
+    font-weight: 400;
+    color: #2c2c2c;
+    font-size: 3.8px;
+    letter-spacing: 0;
+}
+
+.AGB-page .text-wrapper-4 {
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+}

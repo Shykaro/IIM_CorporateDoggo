@@ -4,13 +4,35 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/cookie.css" />
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
 </head>
 
 <body>
     <div class="cookies-page">
-        <div class="overlap-wrapper">
+        <div class="cookie_wrapper">
+            <div class="cookie_headline">
+                Danke, dass du hilfst!
+            </div>
+            <div class="cookie_text">
+                Hier hast du einen Cookie als Belohnung.
+            </div>
+            <div class="cookie">
+                <img class="cookie_img" src="img/cookie.png" />
+            </div>
+            <div class="cookie_accept_btn">
+                <button class="accept_btn" onclick="location.href = 'AGB.html';">
+                    Alle akzeptieren
+                </button>
+            </div>
+            <div class="cookie_info">
+                *Hiermit bestätigen Sie die Nutzung aller 84 Cookies auf dieser Webseite.
+            </div>
+        </div>
+
+
+        <!-- <div class="overlap-wrapper">
             <div class="overlap">
                 <div class="rectangle"></div>
                 <p class="text-wrapper">Hier hast du einen Cookie als Belohnung.</p>
@@ -26,17 +48,33 @@
                         <div class="text-wrapper-3">Alle akzeptieren</div>
                     </div>
                 </button>
-                <div class="rectangle-2"></div>
-                <p class="hey-vielen-dank-dass">
-                    Hey, vielen Dank , dass du Max helfen möchtest!<br />Hier hast du zur Belohnung einen Cookie.
-                </p>
-                <div class="group">
-                    <div class="overlap-2">
-                        <div class="ellipse"></div>
-                        <img class="happy-user-cut" src="img/happy-user-cut.png" />
-                    </div>
-                </div>
             </div>
+        </div> -->
+    </div>
+
+    <div class="reward_system">
+        <div class="rewards_header">
+            <img class="trophy_img" src="img/rewards_trophy_icon.png" alt="reward icon">
+            <p class="rewards_headline">
+                Rewards
+            </p>
+            <span class="rewards_arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="32" viewBox="0 0 38 32" fill="none">
+                    <path d="M19 32L0.813469 0.5H37.1865L19 32Z" fill="white"/>
+                  </svg>
+            </span>
+        </div>
+    </div>
+
+    <div class="narrator_wrapper">
+        <div class="narrator">
+            <img class="narrator_img" src="img/happy_user_cut.png" alt="narrator">
+        </div>
+        <div class="narrator_bubble">
+            <p class="narrator_text">
+                Hey, vielen Dank , dass du Max helfen möchtest!
+                Hier hast du zur Belohnung einen Cookie.
+            </p>
         </div>
     </div>
 </body>

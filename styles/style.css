@@ -1,0 +1,94 @@
+body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.narrator_wrapper {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.narrator_wrapper .narrator {
+    background: linear-gradient(180deg, rgb(255, 193.37, 241.44) 0%, rgba(217, 217, 217, 0) 100%);
+    padding: 5px;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.narrator_wrapper .narrator_img {
+    width: 100%;
+    height: 100%;
+}
+
+.narrator_wrapper .narrator_bubble {
+    position: absolute;
+    bottom: 110px;
+    right: 90px;
+    width: 500px;
+    height: 200px;
+    background-color: #e2f8ff;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.narrator_wrapper .narrator_bubble .narrator_text {
+    margin: 25px;
+    font-family: "Pacifico", Helvetica;
+    color: #2c2c2c;
+    font-size: 24px;
+}
+
+.reward_system {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    width: 500px;
+    height: 114px;
+    border-radius: 60px;
+    box-shadow: 0px 4px 4px #00000040;
+}
+
+.reward_system .rewards_header {
+    height: 100%;
+    width: 100%;
+    border-radius: 60px;
+    background: linear-gradient(218deg, #FFD12E 54.44%, #FFF 127.63%);
+    box-shadow: 0px 4px 0px 0px #E88102;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    cursor: pointer;
+}
+
+.reward_system .trophy_img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+}
+
+.reward_system .rewards_header .rewards_headline{
+    color: #FFF;
+    font-family: Karantina;
+    font-size: 64px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+.reward_system .rewards_arrow {
+    margin-right: 20px;
+}
