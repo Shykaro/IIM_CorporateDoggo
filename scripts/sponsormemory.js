@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let lockBird = false;
     let firstCard, secondCard;
     let img1Found = false; // Neue Zustandsvariable
+    let img1Found2 = false;
 
     function flipCard() {
         if (lockBird || this === firstCard) return;
@@ -30,9 +31,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Überprüfung, ob img1.png auf dieser Karte ist, wenn noch nicht gefunden
         if (!img1Found && this.querySelector('.card-front').style.backgroundImage.includes('img1.png')) {
             img1Found = true; // Setzen des Zustands auf true
-            setTimeout(() => { // Weiterleitung nach einer kurzen Verzögerung
-                window.location.href = 'download.html'; // Ersetzen Sie dies mit der URL Ihrer Zielseite
-            }, 3000);
         }
 
         if (!hasFlippedCard) {
@@ -42,6 +40,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
         secondCard = this;
+        if (!img1Found2 && this.querySelector('.card-front').style.backgroundImage.includes('img1.png') && firstCard.innerHTML === secondCard.innerHTML) {
+            img1Found2 = true; // Setzen des Zustands auf true
+            if(img1Found && img1Found2){
+            setTimeout(() => { // Weiterleitung nach einer kurzen Verzögerung
+                window.location.href = 'download.html'; // Ersetzen Sie dies mit der URL Ihrer Zielseite
+            }, 3000);}
+        }
+
         checkForMatch();
     }
 
