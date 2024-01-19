@@ -2,18 +2,33 @@
     background-color: transparent;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(180deg, rgb(22, 240, 232) 0%, rgb(90, 198, 253) 51.42%, rgb(255, 170, 236) 100%);
+}
+
+.AGB_wrapper {
+    width: 50%;
+    height: 80vh;
+    background: linear-gradient(180deg, rgb(255, 0, 0) 0%, rgb(255, 102.82, 0) 37.5%, rgb(255, 198.41, 142.38) 74.5%, rgb(255, 214.2, 0) 100%);
+    border-radius: 65px;
+    box-shadow: 0px 4px 4px #00000040;
+    padding: 20px;
+}
+
+.AGB_inner_wrapper {
+    background-color: #FFF;
+    border-radius: 65px;
     width: 100%;
+    height: 100%;
 }
 
-.AGB-page .overlap-wrapper {
-    width: 1920px;
-    height: 1080px;
-}
-
-.AGB-page .overlap {
-    position: relative;
-    height: 1080px;
+.AGB_text {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .AGB-page .AGB-BG {
