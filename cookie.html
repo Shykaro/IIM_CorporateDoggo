@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/cookie.css" />
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <script type="text/javascript" src="scripts/cookie.js"></script>
 </head>
 
 <body>
@@ -60,13 +61,24 @@
             </p>
             <span class="rewards_arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="32" viewBox="0 0 38 32" fill="none">
-                    <path d="M19 32L0.813469 0.5H37.1865L19 32Z" fill="white"/>
-                  </svg>
+                    <path d="M19 32L0.813469 0.5H37.1865L19 32Z" fill="white" />
+                </svg>
             </span>
         </div>
     </div>
 
-    <div class="narrator_wrapper">
+    <!-- //////////////////////////////// NARRATOR CODE //////////////////////////////// -->
+    <div id="character-container">
+        <div id="character-icon"></div>
+        <div id="speech-bubble" class="hidden">
+            Hey, vielen Dank, dass du Max helfen möchtest!Hier hast du zur Belohnung einen Cookie.
+        </div>
+    </div>
+    <!-- //////////////////////////////// NARRATOR END //////////////////////////////// -->
+    
+
+    <!--OUTDATED NARRATOR:
+        <div class="narrator_wrapper">
         <div class="narrator">
             <img class="narrator_img" src="img/happy_user_cut.png" alt="narrator">
         </div>
@@ -76,7 +88,7 @@
                 Hier hast du zur Belohnung einen Cookie.
             </p>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>
