@@ -81,8 +81,12 @@
 #character-icon {
     width: 100px; /* icon size */
     height: 100px; /* icon size */
-    background-image: url('/IIM_CorporateDoggo/img/happy_user_cut.png');
-    background-size: cover;
+    border-radius: 50%;
+}
+
+#narrator_img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
