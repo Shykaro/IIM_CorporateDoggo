@@ -1,0 +1,20 @@
+.download-page {
+    background: linear-gradient(180deg, rgb(255, 170, 236.3) 0%, rgb(85, 198.55, 255) 46.49%, rgb(0, 255, 224.4) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.centered-div {
+    width: 200px;  /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    background-color: #ffc1f1; /* Pink background as in cookie_wrapper */
+    border-radius: 50px; /* Rounded corners like cookie_wrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Centers the div in the middle of the page */
+}
