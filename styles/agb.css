@@ -1,7 +1,6 @@
 .AGB-page {
-    background-color: transparent;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -9,210 +8,155 @@
     background: linear-gradient(180deg, rgb(22, 240, 232) 0%, rgb(90, 198, 253) 51.42%, rgb(255, 170, 236) 100%);
 }
 
-.AGB_wrapper {
-    width: 50%;
-    height: 80vh;
+
+.AGB-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(180deg, rgb(255, 0, 0) 0%, rgb(255, 102.82, 0) 37.5%, rgb(255, 198.41, 142.38) 74.5%, rgb(255, 214.2, 0) 100%);
     border-radius: 65px;
     box-shadow: 0px 4px 4px #00000040;
     padding: 20px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Zentriert die Elemente horizontal */
+    max-width: 800px;
+    /* Maximale Breite des Containers */
+    width: 100%;
+    /* Macht den Container responsiv */
+    height: 80vh;
+    /* Feste Höhe basierend auf der Bildschirmgröße */
 }
 
-.AGB_inner_wrapper {
-    background-color: #FFF;
-    border-radius: 65px;
+.AGB-content {
+    position: relative;
     width: 100%;
     height: 100%;
-}
-
-.AGB_text {
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-}
-
-.AGB-page .AGB-BG {
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    top: 0;
-    left: 0;
-    background: linear-gradient(180deg, rgb(22, 240, 232) 0%, rgb(90, 198, 253) 51.42%, rgb(255, 170, 236) 100%);
-}
-
-.AGB-page .rectangle {
-    position: absolute;
-    width: 874px;
-    height: 1022px;
-    top: 29px;
-    left: 523px;
-    border-radius: 65px;
-    box-shadow: 0px 4px 4px #00000040;
-    background: linear-gradient(180deg,
-            rgb(255, 0, 0) 0%,
-            rgb(255, 102.82, 0) 37.5%,
-            rgb(255, 198.41, 142.38) 74.5%,
-            rgb(255, 214.2, 0) 100%);
-}
-
-.AGB-page .div {
-    position: absolute;
-    width: 815px;
-    height: 960px;
-    top: 60px;
-    left: 552px;
     background-color: #ffffff;
     border-radius: 34px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    /* Fügt um den Inhalt herum Platz hinzu */
+    box-sizing: border-box;
+    /* Stellt sicher, dass das Padding in die Gesamtbreite einbezogen wird */
 }
 
-.AGB-page .text-wrapper {
-    position: absolute;
-    top: 76px;
-    left: 919px;
+.text-wrapper {
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
     font-size: 32px;
-    text-align: justify;
-    letter-spacing: 0;
-    line-height: normal;
+    text-align: center;
+    /* Geändert von justify zu center */
+    margin: 20px 0;
+    /* Hinzugefügt für Abstand */
+}
+
+
+.AGB-page .scroll-area {
+    display: flex;
+    /* Definiert die Flexbox */
+    width: 100%;
+    /* Breite des übergeordneten Containers */
+    align-items: flex-start;
+    /* Verhindert, dass Elemente in der Höhe gestreckt werden */
+    position: relative;
+    /* Bezugspunkt für absolute Positionierung */
+    height: auto;
+    /* Höhe basierend auf Inhalt */
+}
+
+.AGB-page .rectangle-3 {
+    flex-grow: 1;
+    /* Nimmt den verfügbaren Platz ein */
+    margin-right: 20px;
+    /* Platz für den Scrollbalken rectangle-2 */
+    height: 55vh;
+    /* Feste Höhe für den scrollbaren Bereich */
+    overflow-y: auto;
+    /* Zeigt einen Scrollbalken, wenn nötig */
+    scrollbar-width: none;
+    /* Für Firefox */
+    -ms-overflow-style: none;
+    /* Für Internet Explorer 10+ */
+    background-color: lightgray;
+    box-shadow: inset 0 0 10px #000000;
+    /* Fügt einen internen Schatten hinzu */
+    padding: 20px;
+    /* Fügt Abstand innen hinzu, damit der Text nicht an den Kanten klebt */
+    margin-right: 30px;
+    /* Erhöht den Abstand zum benutzerdefinierten Scrollbalken */
+
+}
+
+.AGB-page .rectangle-3::-webkit-scrollbar {
+    display: none;
+    /* Für Webkit-Browser wie Safari und Chrome */
 }
 
 .AGB-page .rectangle-2 {
     position: absolute;
-    width: 19px;
-    height: 315px;
-    top: 97px;
-    left: 1336px;
+    /* rectangle-2 wird relativ zum nächsten positionierten Vorfahren positioniert */
+    flex-shrink: 0;
+    /* Verhindert, dass der Scrollbalken seine Größe ändert */
+    height: 80%;
+    /* Anpassbare Höhe */
     background-color: #ffcece;
     border-radius: 30px;
-}
-
-.AGB-page .rectangle-3 {
-    position: absolute;
-    width: 743px;
-    height: 792px;
-    top: 136px;
-    left: 579px;
-    background-color: #eaeaea;
-    box-shadow: inset 0px 4px 4px #00000040;
-}
-
-.AGB-page .lorem-ipsum-dolor {
-    position: absolute;
-    width: 721px;
-    top: 148px;
-    left: 589px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 12px;
-    text-align: justify;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.AGB-page .rectangle-4 {
-    position: absolute;
-    width: 229px;
-    height: 40px;
-    top: 949px;
-    left: 1010px;
-    background-color: #aeaeae;
-    border: 1px solid;
-    border-color: #000000;
-}
-
-.AGB-page .rectangle-5 {
-    position: absolute;
-    width: 229px;
-    height: 40px;
-    top: 949px;
-    left: 659px;
-    background-color: #d9d9d9;
-    border: 1px solid;
-    border-color: #000000;
-    box-shadow: 0px 4px 4px #00000040;
-}
-
-.AGB-page .text-wrapper-2 {
-    position: absolute;
-    top: 949px;
-    left: 693px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 32px;
-    text-align: justify;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.AGB-page .text-wrapper-3 {
-    position: absolute;
-    top: 949px;
-    left: 1053px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #dedede;
-    font-size: 32px;
-    text-align: justify;
-    letter-spacing: 0;
-    line-height: normal;
-}
-
-.AGB-page .group {
-    position: absolute;
-    width: 134px;
-    height: 143px;
-    top: 909px;
-    left: 1744px;
-    box-shadow: 0px 4px 4px #00000040;
-}
-
-.AGB-page .overlap-group {
-    position: relative;
-    height: 143px;
-}
-
-.AGB-page .ellipse {
-    position: absolute;
-    width: 119px;
-    height: 119px;
-    top: 24px;
-    left: 7px;
-    border-radius: 59.5px;
-    background: linear-gradient(180deg, rgb(255, 193.37, 241.44) 0%, rgba(217, 217, 217, 0) 100%);
-}
-
-.AGB-page .happy-user-cut {
-    position: absolute;
-    width: 134px;
-    height: 134px;
+    width: 19px;
+    /* Breite des Scrollbalkens */
+    min-height: 10px;
+    /* Minimale Höhe für Sichtbarkeit */
+    right: -5px;
+    /* Versetzt `rectangle-2` nach außen rechts */
     top: 0;
-    left: 0;
-    object-fit: cover;
+    /* Startet am oberen Rand des Containers */
+    z-index: 1;
+    /* Stellt sicher, dass der Scrollbalken über dem Inhalt liegt */
 }
 
-.AGB-page .rectangle-6 {
-    position: absolute;
-    top: 919px;
-    left: 1695px;
-    background-color: #e2f8ff;
-    border-radius: 3px;
-    box-shadow: 0px 0.48px 0.48px #00000040;
-    opacity: 0;
-}
 
-.AGB-page .span {
-    font-family: "Pacifico-Regular", Helvetica;
+.lorem-ipsum-dolor {
+    font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    color: #2c2c2c;
-    font-size: 3.8px;
+    color: #000000;
+    font-size: 18px;
+    text-align: justify;
     letter-spacing: 0;
+    line-height: normal;
+    overflow-y: auto;
 }
 
-.AGB-page .text-wrapper-4 {
-    font-family: "Inter-Bold", Helvetica;
-    font-weight: 700;
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: solid 1px #000;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    margin: 10px;
+}
+
+
+.accept .text-wrapper-2,
+.decline .text-wrapper-3 {
+    /* Stile für Schaltflächentext */
 }
