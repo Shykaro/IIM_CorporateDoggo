@@ -1,8 +1,17 @@
 // globals.js
 var globalData = {
     coinCount: 0,
-    rewardCount: 6
+    coinAdd: 2450,
+    rewardCount: 10
 };
+
+var rewardArray = [];
+
+for (var i = 1; i <= globalData.rewardCount; i++) {
+    rewardArray.push(i * 5000);
+}
+
+console.log(rewardArray)
 
 // Load existing data from local storage
 var savedCoinCount = localStorage.getItem('coinCount');
@@ -12,17 +21,27 @@ if (savedCoinCount !== null) {
 
 // Punkte erhöhen und in HTML Updaten
 function addCoins() {
-    globalData.coinCount += 2450; // Coins um Wert erhöhen
+    globalData.coinCount += globalData.coinAdd; // Coins um Wert erhöhen
 
     for (var i = 1; i <= globalData.rewardCount; i++) {
         var rew = document.getElementById('reward' + i + '-coins');
         rew.innerHTML = globalData.coinCount;
     }
 
+    //Show the get Coins animation
+    var showAddCoins = document.getElementById('get-coins-id');
+
+    setTimeout(() => {
+        showAddCoins.classList.toggle('receive-coins');
+    }, "500");
     console.log("coinCount:" + globalData.coinCount);
 
     // Save the updated coin count to local storage
     localStorage.setItem('coinCount', globalData.coinCount.toString());
+
+    setTimeout(() => {
+        showAddCoins.classList.toggle('receive-coins');
+    }, "4000");
 }
 
 function createRewardSystem() {
@@ -98,7 +117,7 @@ function createRewardSystem() {
         var rewardCoinsSpan = document.createElement('span');
         rewardCoinsSpan.id = 'reward' + i + '-coins';
         rewardCoins.appendChild(rewardCoinsSpan);
-        rewardCoins.innerHTML += '/' + 5000 * i + 'Münzen';
+        rewardCoins.innerHTML += '/' + rewardArray[i - 1] + 'Münzen';
 
         rewardTextContainer.appendChild(rewardTitle);
         rewardTextContainer.appendChild(rewardCoins);
@@ -114,6 +133,36 @@ function createRewardSystem() {
 
     // Append reward system container to body
     document.body.appendChild(rewardSystemContainer);
+
+
+
+    //////////////////// CREATE GET COINS ELEMENT //////////////////////////
+    var getCoinsDiv = document.createElement('div');
+
+    // Set attributes for the div
+    getCoinsDiv.id = 'get-coins-id';
+    getCoinsDiv.className = 'get-coins';
+
+    // Create an image element
+    var coinsImg = document.createElement('img');
+
+    // Set attributes for the image
+    coinsImg.className = 'get-coins-img';
+    coinsImg.src = 'img/happy_company_logo_cut.png';
+    coinsImg.alt = 'coin icon';
+
+    // Create a paragraph element
+    var coinsHeadline = document.createElement('p');
+    coinsHeadline.className = 'get-coins-headline';
+    coinsHeadline.innerHTML = '+ ' + globalData.coinAdd;
+
+    // Append the image and paragraph to the div
+    getCoinsDiv.appendChild(coinsImg);
+    getCoinsDiv.appendChild(coinsHeadline);
+
+    // Append the div to the body or any other container element
+    document.body.appendChild(getCoinsDiv);
+    //////////////////// END GET COINS ELEMENT //////////////////////////
 }
 
 function rewardSystemFunctionality() {
