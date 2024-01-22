@@ -19,31 +19,6 @@ if (savedCoinCount !== null) {
     globalData.coinCount = parseInt(savedCoinCount);
 }
 
-// Punkte erhöhen und in HTML Updaten
-function addCoins() {
-    globalData.coinCount += globalData.coinAdd; // Coins um Wert erhöhen
-
-    for (var i = 1; i <= globalData.rewardCount; i++) {
-        var rew = document.getElementById('reward' + i + '-coins');
-        rew.innerHTML = globalData.coinCount;
-    }
-
-    //Show the get Coins animation
-    var showAddCoins = document.getElementById('get-coins-id');
-
-    setTimeout(() => {
-        showAddCoins.classList.toggle('receive-coins');
-    }, "500");
-    console.log("coinCount:" + globalData.coinCount);
-
-    // Save the updated coin count to local storage
-    localStorage.setItem('coinCount', globalData.coinCount.toString());
-
-    setTimeout(() => {
-        showAddCoins.classList.toggle('receive-coins');
-    }, "4000");
-}
-
 function createRewardSystem() {
     // Create rewards header
     var rewardsHeader = document.createElement('div');
@@ -163,6 +138,43 @@ function createRewardSystem() {
     // Append the div to the body or any other container element
     document.body.appendChild(getCoinsDiv);
     //////////////////// END GET COINS ELEMENT //////////////////////////
+}
+
+// Punkte erhöhen und in HTML Updaten
+function addCoins() {
+    globalData.coinCount += globalData.coinAdd; // Coins um Wert erhöhen
+
+    for (var i = 1; i <= globalData.rewardCount; i++) {
+        var rew = document.getElementById('reward' + i + '-coins');
+        rew.innerHTML = globalData.coinCount;
+    }
+
+    checkForRewards();
+
+    //Show the get Coins animation
+    var showAddCoins = document.getElementById('get-coins-id');
+
+    setTimeout(() => {
+        showAddCoins.classList.toggle('receive-coins');
+    }, "500");
+    console.log("coinCount:" + globalData.coinCount);
+
+    // Save the updated coin count to local storage
+    localStorage.setItem('coinCount', globalData.coinCount.toString());
+
+    setTimeout(() => {
+        showAddCoins.classList.toggle('receive-coins');
+    }, "4000");
+}
+
+function checkForRewards() {
+
+    for (var i = 1; i <= globalData.rewardCount; i++) {
+        if (globalData.coinCount >= i * 5000) {
+            var thisReward = document.getElementById('reward' + i);
+            thisReward.classList.toggle('reward-completed');
+        }
+    }
 }
 
 function rewardSystemFunctionality() {
