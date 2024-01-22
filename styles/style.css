@@ -126,16 +126,24 @@ button:hover {
                 width 0.5s ease-in-out;
 }
 
-.reward-system .all-rewards {
-    height: 680px;
+.all-rewards {
+    height: 100px;
+    opacity: 0%;
     padding: 0;
     margin-top: 0;
     margin-bottom: 20px;
-    transition: opacity 0.55s ease;
+    transition: opacity 0.55s ease,
+                height 0.5s ease-in-out;
     list-style-type: none;
-    overflow-y: auto;
+    overflow-y: hidden;
     border-radius: 60px;
     scroll-margin-top: 20px;
+}
+
+.rewardList-open {
+    height: 680px;
+    opacity: 100%;
+    overflow-y: auto;
 }
 
 .all-rewards li {

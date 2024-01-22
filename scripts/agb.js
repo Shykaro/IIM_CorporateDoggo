@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    createRewardSystem();
+    rewardSystemFunctionality();
+    addCoins();
+
     var scrollContainer = document.querySelector('.rectangle-3');
     var customScrollbar = document.querySelector('.rectangle-2');
     var textList = [

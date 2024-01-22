@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    createRewardSystem();
+    rewardSystemFunctionality();
+    addCoins();
+
     const delay = 5000; // Verzögerung von 5 Sekunden
 
     setTimeout(() => {
