@@ -3,13 +3,26 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/advideotask.css" />
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
     <script type="text/javascript" src="scripts/global.js"></script>
+    <script type="text/javascript" src="scripts/advideotask.js"></script>
 </head>
 
 <body>
-    <button onclick="location.href = 'sponsormemory.html';"> Weiter </button>
+    <div id="videoPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+                <video id="adVideo" width="100%" muted loop>
+                    <source src="img/Werbevideo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+        </div>
+    </div>
+    <div class="advideotask-page">
+        <div class="centered-div">
+            <button onclick="location.href = 'sponsormemory.html';"> Weiter </button>
+        </div>
+    </div>
 </body>
