@@ -1,5 +1,7 @@
-//////////////////////////////// NARRATOR CODE ////////////////////////////////
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  //////////////////////////////// NARRATOR CODE ////////////////////////////////
     const characterIcon = document.getElementById('character-icon');
     const speechBubble = document.getElementById('speech-bubble');
   
@@ -19,5 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     updateBubbleText();
+    //////////////////////////////// NARRATOR END ////////////////////////////////
+
+    //////////////////////////////// REWARD CODE ////////////////////////////////
+    const rewardsHeader = document.getElementById('rewards-toggle');
+    const rewardSystem = document.getElementById('reward-system-id');
+    const rewardsArrow = document.getElementById('reward-header-arrow');
+
+    rewardsHeader.addEventListener('click', () => {
+      rewardSystem.classList.toggle('rewards-open'); // öffnet die Rewards-Anzeige
+      rewardsArrow.classList.toggle('arrow-flipped'); // Pfeil flippen
+      rewardsHeader.classList.toggle('header-wide'); // Header breiter machen bei klick
+      addCoins();
+    });
+
+    //////////////////////////////// REWARD END ////////////////////////////////
   });
-  //////////////////////////////// NARRATOR END ////////////////////////////////
+  
