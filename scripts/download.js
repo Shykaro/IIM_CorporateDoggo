@@ -25,9 +25,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         );
     }
 
+    var redirectToIndex = getRandomNumber(0, 9); // Wählt einen Index von 0 bis 9
+
     // Function to create a random div
     // Funktion zum Erstellen eines zufälligen div
-    function createRandomDiv() {
+    function createRandomDiv(index) {
         var img = new Image();
         var randomImage = images[getRandomNumber(0, images.length - 1)];
         img.src = randomImage;
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             div.appendChild(img);
 
-            if (Math.random() < 0.2) {
+            if (index === redirectToIndex) {
                 var link = document.createElement('a');
                 link.href = 'advideotask.html';
                 link.appendChild(div.cloneNode(true));
@@ -87,12 +89,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         };
     }
 
-
-    // Erstellen Sie 10 zufällige divs
+    // Erstellen Sie 10 zufällige divs und übergeben Sie den aktuellen Index
     for (var i = 0; i < 10; i++) {
-        createRandomDiv();
+        createRandomDiv(i);
     }
-
     //////////////////////////////// NARRATOR CODE ////////////////////////////////
     const characterIcon = document.getElementById('character-icon');
     const speechBubble = document.getElementById('speech-bubble');
