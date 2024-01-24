@@ -38,6 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.addEventListener('mousemove', (event) => {
+      const closeButton = document.querySelector('.close');
+      const modalContent = document.querySelector('.modal-content');
+      if (!closeButton || !modalContent) return;
+  
+      const bounds = closeButton.getBoundingClientRect();
+      const modalBounds = modalContent.getBoundingClientRect();
+      const distance = 50; // Distanz, in der der Button reagieren soll
+  
+      if (event.clientX < bounds.right + distance && event.clientX > bounds.left - distance &&
+          event.clientY < bounds.bottom + distance && event.clientY > bounds.top - distance) {
+  
+          // Neue Position innerhalb der modal-content div berechnen
+          const newLeft = Math.random() * (modalBounds.width - bounds.width) + modalBounds.left - modalContent.offsetLeft;
+          const newTop = Math.random() * (modalBounds.height - bounds.height) + modalBounds.top - modalContent.offsetTop;
+  
+          closeButton.style.position = 'absolute';
+          closeButton.style.left = `${Math.max(0, newLeft)}px`;
+          closeButton.style.top = `${Math.max(0, newTop)}px`;
+      }
+  });
+  
+  
+  
       //////////////////////////////// NARRATOR CODE ////////////////////////////////
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
