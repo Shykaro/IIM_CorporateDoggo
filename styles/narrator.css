@@ -1,85 +1,127 @@
 /* //////////////////////////////// NARRATOR CODE //////////////////////////////// */
 #character-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000; /* Ein hoher Wert, um sicherzustellen, dass es über anderen Elementen angezeigt wird */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  /* Ein hoher Wert, um sicherzustellen, dass es über anderen Elementen angezeigt wird */
 }
 
 #character-icon {
-    width: 100px; /* icon size */
-    height: 100px; /* icon size */
-    border-radius: 50%;
+  width: 100px;
+  /* icon size */
+  height: 100px;
+  /* icon size */
+  border-radius: 50%;
 }
 
 #narrator_img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 #speech-bubble {
-    position: absolute;
-    font-family: 'Pacifico';
-    bottom: 120px; /* Adjust based on your icon size */
-    right: 60px; /* space to the right to align */
-    min-width: 350px; /* Stellt sicher, dass die Speechbubble nicht kleiner als dieser Wert wird */
-    width: auto; /* Erlaubt der Speechbubble, sich basierend auf dem Inhalt zu erweitern */
-    min-height: 50px; /* Ensures bubble is not too small */
-    padding: 20px;
-    background-color: white;
-    border-radius: 25px 25px 0px 25px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    display: none;
-    font-size: 25px;
-    transform-origin: bottom right;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.3s, transform 0.3s;
-  }
+  position: absolute;
+  font-family: 'Pacifico';
+  bottom: 120px;
+  /* Adjust based on your icon size */
+  right: 60px;
+  /* space to the right to align */
+  min-width: 350px;
+  /* Stellt sicher, dass die Speechbubble nicht kleiner als dieser Wert wird */
+  width: auto;
+  /* Erlaubt der Speechbubble, sich basierend auf dem Inhalt zu erweitern */
+  min-height: 50px;
+  /* Ensures bubble is not too small */
+  padding: 20px;
+  background-color: white;
+  border-radius: 25px 25px 0px 25px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  font-size: 25px;
+  transform-origin: bottom right;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
 
-  #speech-bubble.visible {
-    opacity: 1;
+#speech-bubble.visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: blop-in 0.5s ease;
+}
+
+@keyframes blop-in {
+
+  0%,
+  100% {
     transform: scale(1);
-    animation: blop-in 0.5s ease;
   }
 
-  @keyframes blop-in {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes blop-out {
+
+  0%,
+  100% {
+    transform: scale(1);
   }
 
-  @keyframes blop-out {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(0.95);
-    }
+  50% {
+    transform: scale(0.95);
   }
+}
 
 /* bobbing animation to the speech bubble */
 #speech-bubble.visible {
-    animation: bobbing 1.5s ease-in-out infinite;
-    display: block;
-    animation: blop 0.5s ease;
+  animation: bobbing 1.5s ease-in-out infinite;
+  display: block;
+  animation: blop 0.5s ease;
 }
 
 /* transition for a smoother effect when showing/hiding */
 #speech-bubble {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 #bubble-text {
-    line-height: normal;
-  }
+  line-height: normal;
+}
 
 .hidden {
-    display: none;
+  display: none;
 }
+
+/* .narrator-line {
+  position: relative;
+  top: 50%;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, .75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+.anim-typewriter {
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+  blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+} */
+
 /* //////////////////////////////// NARRATOR END //////////////////////////////// */
