@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <link rel="stylesheet" href="styles/formular.css" />
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
-        <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@700&display=swap" rel="stylesheet">
-        <script type="text/javascript" src="scripts/global.js"></script>
-    </head>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/formular.css" />
+    <link rel="stylesheet" href="styles/narrator.css" />
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="scripts/global.js"></script>
+    <script type="text/javascript" src="scripts/formular.js"></script>
+</head>
+
+<body>
+
     <body>
         <div class="formular-page">
-            <div class="div">
-                <div class="form-el">
-                    <div class="rectangle"></div>
-                    <div class="text-wrapper">Name</div>
-                </div>
-                <div class="form-el-2">
-                    <div class="rectangle-2"></div>
-                    <div class="text-wrapper-2">Alter</div>
-                </div>
-                <div class="overlap">
-                    <div class="form-el-3">
-                        <div class="rectangle-3"></div>
-                        <div class="text-wrapper-3">Geschlecht</div>
+            <h1>Wer hilft Max denn?</h1>
+            <div class="form-container">
+                <div class="left-section">
+                    <div class="profile-pic">
+                        <video id="cameraFeed" autoplay></video>
                     </div>
-                    <img class="polygon" src="img/polygon-1.svg" />
                 </div>
-                <div class="text-wrapper-4">Wer hilft Max denn?</div>
-                <button class="start-btn" onclick="location.href = 'download.html';">
-                    Persönliche Daten absenden
-                </button>
-                <div class="img"> </div>
+                <!-- Right Section -->
+                <div class="right-section">
+                    <form class="form">
+                        <div class="input-group name">
+                            <input type="text" id="name" name="name" placeholder="Name">
+                        </div>
+                        <!-- Age and Gender in the same row -->
+                        <div class="input-row">
+                            <div class="input-group age">
+                                <input type="text" id="age" name="age" placeholder="Alter">
+                            </div>
+                            <div class="input-group gender">
+                                <select id="gender" name="gender">
+                                    <option value="" disabled selected>Geschlecht</option>
+                                    <option value="male">Männlich</option>
+                                    <option value="female">Weiblich</option>
+                                    <option value="other">Andere</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <button type="submit" class="submit-btn" onclick="location.href = 'download.html';" disabledgit>Persönliche Daten absenden</button>
+
+        </div>
+        <div id="character-container">
+            <div id="character-icon">
+                <img id="narrator_img" src="img/happy_user_cut.png" alt="narrator">
+            </div>
+            <div id="speech-bubble" class="hidden">
+                
             </div>
         </div>
     </body>
+
 </html>

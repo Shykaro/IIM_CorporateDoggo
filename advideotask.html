@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/advideotask.css" />
+    <link rel="stylesheet" href="styles/narrator.css" />
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="scripts/global.js"></script>
@@ -15,7 +16,7 @@
     <div id="videoPopup" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-                <video id="adVideo" width="100%" muted loop>
+                <video id="adVideo" width="100%" >
                     <source src="img/Werbevideo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -23,7 +24,17 @@
     </div>
     <div class="advideotask-page">
         <div class="centered-div">
+            <h1>Finde einen weg für Max!</h1>
+            <img src="img/advideotaskLabyrinth.png" alt="Weird Puzzle">
             <button onclick="location.href = 'sponsormemory.html';"> Weiter </button>
+        </div>
+    </div>
+    <div id="character-container">
+        <div id="character-icon">
+            <img id="narrator_img" src="img/happy_user_cut.png" alt="narrator">
+        </div>
+        <div id="speech-bubble" class="hidden">
+            
         </div>
     </div>
 </body>

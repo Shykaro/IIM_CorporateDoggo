@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     addCoins();
 
     var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_green_old.png'];
-    var divs = []; // Array to store the created divs
+    var divs = []; // Array zum Speichern der erstellten divs
 
     // Function to get a random number within a range
     function getRandomNumber(min, max) {
@@ -14,80 +14,134 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Function to check if two divs overlap
     function doDivsOverlap(div1, div2) {
+        var rect1 = div1.getBoundingClientRect();
+        var rect2 = div2.getBoundingClientRect();
+
         return (
-            div1.offsetLeft < div2.offsetLeft + div2.offsetWidth &&
-            div1.offsetLeft + div1.offsetWidth > div2.offsetLeft &&
-            div1.offsetTop < div2.offsetTop + div2.offsetHeight &&
-            div1.offsetTop + div1.offsetHeight > div2.offsetTop
+            rect1.left < rect2.right &&
+            rect1.right > rect2.left &&
+            rect1.top < rect2.bottom &&
+            rect1.bottom > rect2.top
         );
     }
 
     // Function to create a random div
+    // Funktion zum Erstellen eines zufälligen div
     function createRandomDiv() {
-        var div = document.createElement('div');
-        div.className = 'random-div';
-
-        // Set random size within a range (minimum size is 50x50)
-        var width, height;
-
-        // Randomly choose between 16:9 and 1:1 aspect ratios
-        if (Math.random() < 0.5) {
-            // 16:9 aspect ratio
-            width = getRandomNumber(50, 200);
-            height = Math.floor(width * 9 / 16);
-        } else {
-            // 1:1 aspect ratio
-            height = width = getRandomNumber(50, 200);
-        }
-
-        div.style.width = width + 'px';
-        div.style.height = height + 'px';
-
-        // Set random position within the window grid
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-
-        var gridColumns = 3;
-        var gridRows = 3;
-
-        var cellWidth = windowWidth / gridColumns;
-        var cellHeight = windowHeight / gridRows;
-
-        var columnIndex = getRandomNumber(0, gridColumns - 1);
-        var rowIndex = getRandomNumber(0, gridRows - 1);
-
-        var x, y;
-
-        // Try to find a position that does not overlap with existing divs
-        do {
-            x = columnIndex * cellWidth + getRandomNumber(0, cellWidth - width);
-            y = rowIndex * cellHeight + getRandomNumber(0, cellHeight - height);
-        } while (divs.some(existingDiv => doDivsOverlap(div, existingDiv)));
-
-        div.style.left = x + 'px';
-        div.style.top = y + 'px';
-
-        // Set random image
+        var img = new Image();
         var randomImage = images[getRandomNumber(0, images.length - 1)];
-        var img = document.createElement('img');
         img.src = randomImage;
-        div.appendChild(img);
 
-        // Make one of the divs a link
-        if (Math.random() < 0.2) { // Adjust the probability as needed
-            var link = document.createElement('a');
-            link.href = 'target.html'; // Replace with the actual target HTML page
-            link.appendChild(div.cloneNode(true)); // Clone the div content into the anchor
-            document.body.appendChild(link);
-        } else {
-            document.body.appendChild(div);
-        }
+        img.onload = function () {
+            var scaleFactor = getRandomNumber(50, 100) / 100; // Zufälliger Skalierungsfaktor zwischen 0.5 und 1.0
+            var div = document.createElement('div');
+            div.className = 'random-div';
+            div.style.width = img.width * scaleFactor + 'px';
+            div.style.height = img.height * scaleFactor + 'px';
+            document.body.appendChild(div); // Temporär hinzufügen, um getBoundingClientRect zu verwenden
 
-        divs.push(div); // Add the created div to the array
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+
+            var gridColumns = 3;
+            var gridRows = 3;
+
+            var cellWidth = windowWidth / gridColumns;
+            var cellHeight = windowHeight / gridRows;
+
+            var narratorExclusionZone = {
+                x: window.innerWidth - 300, // Narrator-Breite anpassen
+                y: window.innerHeight - 300, // Narrator-Höhe anpassen
+            };
+
+            var overlap, x, y;
+            do {
+                overlap = false;
+                var columnIndex = getRandomNumber(0, gridColumns - 1);
+                var rowIndex = getRandomNumber(0, gridRows - 1);
+
+                x = columnIndex * cellWidth + getRandomNumber(0, cellWidth - img.width * scaleFactor);
+                y = rowIndex * cellHeight + getRandomNumber(0, cellHeight - img.height * scaleFactor);
+                div.style.left = x + 'px';
+                div.style.top = y + 'px';
+
+                for (var i = 0; i < divs.length; i++) {
+                    if (doDivsOverlap(div, divs[i])) {
+                        overlap = true;
+                        break;
+                    }
+                }
+            } while (overlap || (x + img.width * scaleFactor > narratorExclusionZone.x && y + img.height * scaleFactor > narratorExclusionZone.y));
+
+            div.appendChild(img);
+
+            if (Math.random() < 0.2) {
+                var link = document.createElement('a');
+                link.href = 'advideotask.html';
+                link.appendChild(div.cloneNode(true));
+                document.body.appendChild(link);
+                document.body.removeChild(div);
+            } else {
+                divs.push(div);
+            }
+        };
     }
 
-    // Create 10 random divs
+
+    // Erstellen Sie 10 zufällige divs
     for (var i = 0; i < 10; i++) {
         createRandomDiv();
     }
+
+    //////////////////////////////// NARRATOR CODE ////////////////////////////////
+    const characterIcon = document.getElementById('character-icon');
+    const speechBubble = document.getElementById('speech-bubble');
+
+    // Funktion, um die Speechbubble anzuzeigen
+    function showBubble(tempText, duration) {
+        speechBubble.textContent = tempText;
+        speechBubble.style.animation = ''; // Setzt vorherige Animation zurück
+        speechBubble.classList.add('visible');
+        speechBubble.style.animation = 'blop-in 0.5s ease'; // Startet die Einblend-Animation
+
+        setTimeout(() => {
+            speechBubble.style.animation = 'blop-out 0.5s ease'; // Startet die Ausblend-Animation
+            setTimeout(() => {
+                speechBubble.classList.remove('visible');
+                speechBubble.style.animation = ''; // Setzt Animation zurück
+            }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+        }, duration);
+    }
+
+    // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+    function updateBubbleText() {
+        setTimeout(() => {
+            showBubble("Hey, vielen Dank, dass du Max helfen möchtest! Hier hast du zur Belohnung einen Cookie.", 7000);
+        }, 2000);
+
+        setTimeout(() => {
+            showBubble("Es würde uns freuen, wenn du deinen Belohnungs-Cookie annimmst!", 5000);
+        }, 20000);
+
+        setTimeout(() => {
+            showBubble("Bitte nimm den Cookie an.", 5000);
+        }, 35000);
+    }
+
+    updateBubbleText();
+
+    characterIcon.addEventListener('click', () => {
+        if (!speechBubble.classList.contains('visible')) {
+            speechBubble.style.animation = '';
+            speechBubble.classList.add('visible');
+            speechBubble.style.animation = 'blop-in 0.5s ease';
+        } else {
+            speechBubble.style.animation = 'blop-out 0.5s ease';
+            setTimeout(() => {
+                speechBubble.classList.remove('visible');
+                speechBubble.style.animation = '';
+            }, 500);
+        }
+    });
+    //////////////////////////////// NARRATOR END ////////////////////////////////
 });
