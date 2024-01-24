@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     rewardSystemFunctionality();
     addCoins();
 
-    var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_green_old.png'];
+    var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_red_old.png', './img/Download_blue_old.png', './img/Upload_purple_old.png'];
     var divs = []; // Array zum Speichern der erstellten divs
 
     // Function to get a random number within a range
