@@ -193,7 +193,7 @@ function checkForRewards() {
             if (i > globalData.completedRewards) {
                 console.log("completedRewards" + globalData.completedRewards);
                 globalData.completedRewards++;
-                //alert("Reward " + i + " unlocked!");
+                //alert("Reward " + i + " unlocked!"); /
 
                 // Save the updated coin count to local storage
                 localStorage.setItem('completedRewards', globalData.completedRewards.toString());
