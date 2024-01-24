@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
 
     setTimeout(() => {
-      showBubble("Komm schon, tu es für Max!", 5000);
+      showBubble("Komm schon, tu es doch für Max!", 5000);
     }, 20000);
 
     setTimeout(() => {
