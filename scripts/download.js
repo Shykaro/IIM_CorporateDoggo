@@ -118,15 +118,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
     function updateBubbleText() {
         setTimeout(() => {
-            showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Download-Button zu finden.", 6000);
+            showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Download-Button zu finden.", 8000);
         }, 1000);
 
         setTimeout(() => {
-            showBubble("Achte mal auf deine Maus, vielleicht findest du ihn so.", 5000);
+            showBubble("Achte mal auf deine Maus, vielleicht findest du ihn so.", 8000);
         }, 20000);
 
         setTimeout(() => {
-            showBubble("Vielleicht klickst du einfach mal auf irgendeinen drauf. Wir achten sehr genau darauf, welche Werbung wir anzeigen lassen;)", 5000);
+            showBubble("Vielleicht klickst du einfach mal auf irgendeinen drauf. Wir achten sehr genau darauf, welche Werbung wir anzeigen lassen;)", 10000);
         }, 35000);
     }
 

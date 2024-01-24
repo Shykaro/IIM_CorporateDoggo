@@ -137,7 +137,7 @@ function createRewardSystem() {
 
     // Set attributes for the image
     coinsImg.className = 'get-coins-img';
-    coinsImg.src = 'img/happy_company_logo_cut.png';
+    coinsImg.src = 'img/bone_coin.png';
     coinsImg.alt = 'coin icon';
 
     // Create a paragraph element

@@ -66,15 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2000);
 
     setTimeout(() => {
-      showBubble("Füll bitte das Formular aus, wir wollen ja auch nicht so viele Informationen. Das Profilbild hab ich schon für dich erstellt. Gerngeschehen!", 5000);
+      showBubble("Füll bitte das Formular aus, wir wollen ja auch nicht so viele Informationen. Das Profilbild hab ich schon für dich erstellt. Gerngeschehen!", 10000);
     }, 20000);
 
     setTimeout(() => {
-      showBubble("Hast du deinen Namen vergessen oder was?", 5000);
+      showBubble("Hast du deinen Namen vergessen oder was?", 8000);
     }, 35000);
 
     setTimeout(() => {
-      showBubble("Max wüsste glaube ich echt gerne, wer da für sein Essen verantwortlich ist!", 5000);
+      showBubble("Max wüsste glaube ich echt gerne, wer da für sein Essen verantwortlich ist!", 9000);
     }, 35000);
   }
 

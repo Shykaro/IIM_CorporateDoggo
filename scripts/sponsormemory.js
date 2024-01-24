@@ -109,12 +109,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }, 2000);
 
     setTimeout(() => {
-      showBubble("Schau nochmal nach, du findest Max schon!", 5000);
-    }, 7000);
+      showBubble("Schau nochmal nach, du findest Max schon!", 7000);
+    }, 16000);
 
     setTimeout(() => {
-      showBubble("Sehr gut! Ich bin mir sicher du schaffst das noch schneller als letztes Mal.", 5000);
-    }, 5000);
+      showBubble("Sehr gut! Ich bin mir sicher du schaffst das noch schneller als letztes Mal.", 7000);
+    }, 26000);
   }
 
   updateBubbleText();
