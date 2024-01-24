@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function updateBubbleText() {
         setTimeout(() => {
             showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Download-Button zu finden.", 6000);
-        }, 500);
+        }, 1000);
 
         setTimeout(() => {
             showBubble("Achte mal auf deine Maus, vielleicht findest du ihn so.", 5000);

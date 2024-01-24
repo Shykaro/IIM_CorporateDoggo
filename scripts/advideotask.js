@@ -94,15 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
   function updateBubbleText() {
     setTimeout(() => {
-      showBubble("Hey, vielen Dank, dass du Max helfen möchtest! Hier hast du zur Belohnung einen Cookie.", 7000);
-    }, 2000);
+      showBubble("Max hat sich verlaufen. Helfe Max aus dem Labirint!", 2000);
+    }, 500);
 
     setTimeout(() => {
-      showBubble("Es würde uns freuen, wenn du deinen Belohnungs-Cookie annimmst!", 5000);
-    }, 20000);
+      showBubble("Oh da kam wohl eine Werbeanzeige dazwischen, die ist bestimmt gleich wieder weg.", 5000);
+    }, 100);
 
     setTimeout(() => {
-      showBubble("Bitte nimm den Cookie an.", 5000);
+      showBubble("Scheint als ist die Aufgabe schon verschwunden. Aber macht nichts, ich geb dir für die Werbung auch ein paar Münzen.", 5000);
     }, 35000);
   }
 

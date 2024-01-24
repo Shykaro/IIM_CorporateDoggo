@@ -110,7 +110,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     setTimeout(() => {
       showBubble("Schau nochmal nach, du findest Max schon!", 5000);
-    }, 20000);
+    }, 7000);
+
+    setTimeout(() => {
+      showBubble("Sehr gut! Ich bin mir sicher du schaffst das noch schneller als letztes Mal.", 5000);
+    }, 5000);
   }
 
   updateBubbleText();
