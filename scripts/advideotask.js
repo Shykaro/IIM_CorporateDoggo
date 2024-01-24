@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
   function updateBubbleText() {
     setTimeout(() => {
-      showBubble("Max hat sich verlaufen. Helfe Max aus dem Labirint!", 2000);
+      showBubble("Max hat sich verlaufen. Helfe Max aus dem Labyrinth!", 2000);
     }, 500);
 
     setTimeout(() => {
