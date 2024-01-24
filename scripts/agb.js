@@ -87,11 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
   function updateBubbleText() {
     setTimeout(() => {
-      showBubble("Du musst die AGBs annehmen, dass wir weiter Max helfen können.", 8000);
+      showBubble("Falls dir die AGB nicht gefallen, lies sie einmal durch um sie abzulehnen.", 8000);
     }, 2000);
 
     setTimeout(() => {
-      showBubble("Komm schon, tu es doch für Max!", 7000);
+      showBubble("Komm schon nimm sie einfach an, tu es für Max!", 7000);
     }, 20000);
 
     setTimeout(() => {

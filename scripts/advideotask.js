@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       showBubble("Scheint als ist die Aufgabe schon verschwunden. Aber macht nichts, ich geb dir für die Werbung auch ein paar Münzen.", 8000);
-    }, 35000);
+    }, 15000);
   }
 
   updateBubbleText();
