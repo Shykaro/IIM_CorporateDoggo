@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     createRewardSystem();
     rewardSystemFunctionality();
     addCoins();
+    enterFullScreen(document.documentElement); // für den gesamten Tab
+
 
     var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_red_old.png', './img/Download_blue_old.png', './img/Upload_purple_old.png'];
     var divs = []; // Array zum Speichern der erstellten divs

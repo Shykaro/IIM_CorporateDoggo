@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   createRewardSystem();
   rewardSystemFunctionality();
   addCoins();
+  enterFullScreen(document.documentElement); // für den gesamten Tab
 
   //////////////////////////////// NARRATOR CODE ////////////////////////////////
   const characterIcon = document.getElementById('character-icon');

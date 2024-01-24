@@ -5,4 +5,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     globalData.completedRewards = 0;
     localStorage.setItem('completedRewards', globalData.completedRewards.toString());
     console.log('New coinCount: ' + globalData.coinCount)
+    enterFullScreen(document.documentElement); // für den gesamten Tab
 });

@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const videoElement = document.getElementById('cameraFeed');
 
@@ -13,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  enterFullScreen(document.documentElement); // für den gesamten Tab
     // Referenzen auf die Formularfelder und den Submit-Button
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');

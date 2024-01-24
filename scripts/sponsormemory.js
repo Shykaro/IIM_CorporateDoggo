@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     createRewardSystem();
     rewardSystemFunctionality();
     addCoins();
+    enterFullScreen(document.documentElement); // für den gesamten Tab
+
 
     let cards = ['./img/MemoryPics/img1.png', './img/MemoryPics/img2.png', './img/MemoryPics/img3.png', './img/MemoryPics/img4.png', './img/MemoryPics/img5.png', './img/MemoryPics/img6.png']; // 6 unique images
     let game = document.getElementById('memory-game');

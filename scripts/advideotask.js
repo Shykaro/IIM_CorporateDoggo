@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createRewardSystem();
     rewardSystemFunctionality();
     addCoins();
+    enterFullScreen(document.documentElement); // für den gesamten Tab
 
     const delay = 5000; // Verzögerung von 5 Sekunden
 
