@@ -2,21 +2,29 @@
 var globalData = {
     coinCount: 0,
     coinAdd: 2450,
-    rewardCount: 10
+    rewardCount: 10,
+    completedRewards: 0
 };
 
-var rewardArray = [];
+var rewardArrayCoins = [];
+var rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen'];
 
 for (var i = 1; i <= globalData.rewardCount; i++) {
-    rewardArray.push(i * 5000);
+    rewardArrayCoins.push(i * 5000);
 }
 
-console.log(rewardArray)
+console.log(rewardArrayCoins)
 
 // Load existing data from local storage
 var savedCoinCount = localStorage.getItem('coinCount');
 if (savedCoinCount !== null) {
     globalData.coinCount = parseInt(savedCoinCount);
+}
+
+// Load existing data from local storage
+var savedCompletedRewards = localStorage.getItem('completedRewards');
+if (savedCompletedRewards !== null) {
+    globalData.completedRewards = parseInt(savedCompletedRewards);
 }
 
 function createRewardSystem() {
@@ -86,13 +94,19 @@ function createRewardSystem() {
         var rewardTextContainer = document.createElement('div');
 
         var rewardTitle = document.createElement('p');
-        rewardTitle.textContent = 'Reward Title ' + i;
+        if ((i - 1) >= rewardArrayNames.length) {
+            var randomReward = Math.floor(Math.random() * (rewardArrayNames.length - 1)) + 1;
+            console.log(randomReward);
+            rewardTitle.textContent = rewardArrayNames[randomReward];
+        } else {
+            rewardTitle.textContent = rewardArrayNames[i - 1];
+        }
 
         var rewardCoins = document.createElement('p');
         var rewardCoinsSpan = document.createElement('span');
         rewardCoinsSpan.id = 'reward' + i + '-coins';
         rewardCoins.appendChild(rewardCoinsSpan);
-        rewardCoins.innerHTML += '/' + rewardArray[i - 1] + 'Münzen';
+        rewardCoins.innerHTML += '/' + rewardArrayCoins[i - 1] + ' Münzen';
 
         rewardTextContainer.appendChild(rewardTitle);
         rewardTextContainer.appendChild(rewardCoins);
@@ -169,10 +183,21 @@ function addCoins() {
 
 function checkForRewards() {
 
+    console.log('Check for rewards' + globalData.completedRewards)
+
     for (var i = 1; i <= globalData.rewardCount; i++) {
         if (globalData.coinCount >= i * 5000) {
             var thisReward = document.getElementById('reward' + i);
             thisReward.classList.toggle('reward-completed');
+
+            if (i > globalData.completedRewards) {
+                console.log("completedRewards" + globalData.completedRewards);
+                globalData.completedRewards++;
+                alert("Reward " + i + " unlocked!");
+
+                // Save the updated coin count to local storage
+                localStorage.setItem('completedRewards', globalData.completedRewards.toString());
+            }
         }
     }
 }
