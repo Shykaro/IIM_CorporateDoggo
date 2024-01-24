@@ -7,6 +7,7 @@
     <title>Happy Company</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/weristmax.css">
+    <link rel="stylesheet" href="styles/narrator.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@700&display=swap" rel="stylesheet">
@@ -17,15 +18,56 @@
 </head>
 
 <body>
-    <div class="weristmax-page">
-        <div class="div">
-            <div class="overlap-group">
-                <div class="text-wrapper">Hilf Max dem Hund!</div>
-                <p class="p">sponsored by The Happy Company</p>
+    <div class="max-page">
+        <h1>
+            Wer ist Max?
+        </h1>
+        <div class="max-wrapper">
+            <div class="max-text">
+                <p>
+                    Treffen Sie Max, unseren liebenswerten vierbeinigen Freund im Tierheim! Max ist ein treuer
+                    Begleiter,
+                    der durch eine schwierige Zeit gegangen ist. Einst wohnte er bei einer liebevollen Familie mit zwei
+                    Söhnen.
+                    Max war glücklich! Das Haus stand am Waldrand und im Herbst war die große Wiese vor dem Haus bedeckt
+                    mit
+                    gold-gelbem Laub.
+                    <br>
+                    <br>
+                    Als die Söhne allerdings zu alt wurden, setzte die einst so liebevolle Familie, Max an einer
+                    Autoraststätte an der polnischen Grenze aus.
+                    Von da an musste Max sein Leben auf der Straße im dunkeln fristen.
+                    Ein Glück fanden ihn die lieben Helfer eines Tierheims, welche Max aufnahmen.
+                    Jetzt träumt Max davon seinen Käfig verlassen zu können, mit anderen Hunden zu toben und wieder auf
+                    der
+                    Straße leben zu dürfen. Dein Herz wird schmelzen, wenn du Max näher kennenlernst.
+                    <br>
+                    <br>
+                    Hilf Max bei seinem Traum und gib ihm ein besseres Leben!
+                </p>
             </div>
-            <button type="button" class="start-btn" onclick="location.href = 'cookie.html';">Start</button>
+        </div>
+        <button class="max-btn" onclick="location.href = 'cookie.html';">
+            Max helfen!
+        </button>
+        <div class="max-img-real">
+            <img src="img/Malware_anzeige.png" alt="">
+        </div>
+        <div class="max-img-cartoon">
+            <img src="img/bone_coin.png" alt="">
         </div>
     </div>
+
+    <!-- //////////////////////////////// NARRATOR CODE //////////////////////////////// -->
+    <div id="character-container">
+        <div id="character-icon">
+            <img id="narrator_img" src="img/happy_user_cut.png" alt="narrator">
+        </div>
+        <div id="speech-bubble" class="hidden">
+
+        </div>
+    </div>
+    <!-- //////////////////////////////// NARRATOR END //////////////////////////////// -->
 </body>
 
 </html>
