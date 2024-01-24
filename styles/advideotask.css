@@ -9,14 +9,35 @@
 }
 
 .centered-div {
-    width: 200px;  /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
-    background-color: #ffc1f1; /* Pink background as in cookie_wrapper */
-    border-radius: 50px; /* Rounded corners like cookie_wrapper */
+    background-color: #ffc1f1;
+    /* Pink background as in cookie_wrapper */
+    border-radius: 50px;
+    /* Rounded corners like cookie_wrapper */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* Stellt die Elemente vertikal auf */
     align-items: center;
-    margin: auto; /* Centers the div in the middle of the page */
+    /* Zentriert die Elemente horizontal */
+    justify-content: center;
+    /* Zentriert die Elemente vertikal */
+    padding: 20px;
+    /* Fügt etwas Abstand hinzu */
+
+}
+
+h1 {
+    font-family: 'Pacifico'; /* Verwendung der Pacifico-Schriftart */
+    color: #484848; /* Textfarbe auf Weiß setzen */
+    font-size: 34px;
+}
+
+.centered-div img {
+    max-width: 400px;
+    /* Maximale Breite des Bildes */
+    height: auto;
+    /* Höhe automatisch anpassen, um das Seitenverhältnis zu erhalten */
+    margin-bottom: 20px;
+    /* Abstand zum Button */
 }
 
 .modal {
@@ -25,12 +46,16 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; /* Reduzieren Sie die Breite nach Bedarf */
-    height: 100%; /* Reduzieren Sie die Höhe nach Bedarf */
+    width: 100%;
+    /* Reduzieren Sie die Breite nach Bedarf */
+    height: 100%;
+    /* Reduzieren Sie die Höhe nach Bedarf */
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 20px; /* Reduzieren Sie den oberen Abstand, falls erforderlich */
-    z-index: 100; /* Stellen Sie sicher, dass dieser Wert höher ist als der des "Reward" Systems */
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 20px;
+    /* Reduzieren Sie den oberen Abstand, falls erforderlich */
+    z-index: 100;
+    /* Stellen Sie sicher, dass dieser Wert höher ist als der des "Reward" Systems */
 }
 
 
@@ -55,9 +80,12 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
-    background-color: rgba(0, 0, 0, 0.5); /* Schwarz mit 50% Transparenz */
-    border-radius: 10px; /* Abgerundete Ecken */
-    padding: 5px; /* Etwas Abstand um das X */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Schwarz mit 50% Transparenz */
+    border-radius: 10px;
+    /* Abgerundete Ecken */
+    padding: 5px;
+    /* Etwas Abstand um das X */
     cursor: pointer;
 }
 
@@ -65,5 +93,6 @@
 .close:focus {
     color: #000;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.7); /* Dunkler und weniger transparent beim Hover */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dunkler und weniger transparent beim Hover */
 }

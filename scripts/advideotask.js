@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const videoPopup = document.getElementById('videoPopup');
         const videoElement = document.getElementById('adVideo');
+    
+        if (videoElement) {
+            videoElement.onended = () => {
+                setTimeout(() => {
+                    window.location.href = 'sponsormemory.html'; // URL anpassen
+                }, 3000); // 3000 Millisekunden Verzögerung
+            };
+        }
 
         if (videoPopup && videoElement) {
             videoPopup.style.display = 'block';
