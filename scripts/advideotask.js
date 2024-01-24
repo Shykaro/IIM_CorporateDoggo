@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
 
     setTimeout(() => {
-      showBubble("Oh da kam wohl eine Werbeanzeige dazwischen, die ist bestimmt gleich wieder weg.", 8000);
+      showBubble("Oh da kam wohl eine Werbeanzeige dazwischen, die ist bestimmt gleich wieder weg.", 6000);
     }, 6000);
 
     setTimeout(() => {
