@@ -80,11 +80,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
             div.appendChild(img);
 
             if (index === redirectToIndex) {
-                var link = document.createElement('a');
-                link.href = 'advideotask.html';
+                var link = document.createElement('div');
+                link.className = 'right-download';
+                //link.href = '';
                 link.appendChild(div.cloneNode(true));
                 document.body.appendChild(link);
                 document.body.removeChild(div);
+                link.addEventListener("click", chooseRandomTask);
             } else {
                 divs.push(div);
             }
@@ -101,7 +103,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Funktion, um die Speechbubble anzuzeigen
     function showBubble(tempText, duration) {
-        speechBubble.textContent = tempText;
+        speechBubble.innerHTML = '';
+        typeWriter(speechBubble, tempText);
+        //speechBubble.textContent = tempText;
         speechBubble.style.animation = ''; // Setzt vorherige Animation zurück
         speechBubble.classList.add('visible');
         speechBubble.style.animation = 'blop-in 0.5s ease'; // Startet die Einblend-Animation
@@ -118,7 +122,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
     function updateBubbleText() {
         setTimeout(() => {
-            showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Download-Button zu finden.", 8000);
+            showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Button zu finden.", 8000);
         }, 1000);
 
         setTimeout(() => {

@@ -45,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Funktion, um die Speechbubble anzuzeigen
   function showBubble(tempText, duration) {
-    speechBubble.textContent = tempText;
+    speechBubble.innerHTML = '';
+    typeWriter(speechBubble, tempText);
+    //speechBubble.textContent = tempText;
     speechBubble.style.animation = ''; // Setzt vorherige Animation zurück
     speechBubble.classList.add('visible');
     speechBubble.style.animation = 'blop-in 0.5s ease'; // Startet die Einblend-Animation
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       showBubble("Max wüsste glaube ich echt gerne, wer da für sein Essen verantwortlich ist!", 9000);
-    }, 35000);
+    }, 45000);
   }
 
   updateBubbleText();

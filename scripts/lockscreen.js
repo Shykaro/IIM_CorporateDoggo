@@ -12,4 +12,4 @@ function enterFullScreen(element) {
   
   // Rufen Sie diese Funktion irgendwo in Ihrem Code auf, z. B. nach einem Button-Klick:
   
-document.addEventListener('contextmenu', event => event.preventDefault());
+//document.addEventListener('contextmenu', event => event.preventDefault());

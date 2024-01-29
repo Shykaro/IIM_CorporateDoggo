@@ -3,7 +3,6 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  cursor: pointer;
   z-index: 1000;
   /* Ein hoher Wert, um sicherzustellen, dass es über anderen Elementen angezeigt wird */
 }
@@ -14,6 +13,7 @@
   height: 100px;
   /* icon size */
   border-radius: 50%;
+  cursor: pointer;
 }
 
 #narrator_img {

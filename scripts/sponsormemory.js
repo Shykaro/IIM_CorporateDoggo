@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             img1Found2 = true; // Setzen des Zustands auf true
             if(img1Found && img1Found2){
             setTimeout(() => { // Weiterleitung nach einer kurzen Verzögerung
-                window.location.href = 'download.html'; // Ersetzen Sie dies mit der URL Ihrer Zielseite
+              chooseRandomTask(); // Ersetzen Sie dies mit der URL Ihrer Zielseite
             }, 3000);}
         }
 
@@ -88,7 +88,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // Funktion, um die Speechbubble anzuzeigen
   function showBubble(tempText, duration) {
-    speechBubble.textContent = tempText;
+    speechBubble.innerHTML = '';
+    typeWriter(speechBubble, tempText);
+    //speechBubble.textContent = tempText;
     speechBubble.style.animation = ''; // Setzt vorherige Animation zurück
     speechBubble.classList.add('visible');
     speechBubble.style.animation = 'blop-in 0.5s ease'; // Startet die Einblend-Animation

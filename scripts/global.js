@@ -2,12 +2,15 @@
 var globalData = {
     coinCount: 0,
     coinAdd: 2450,
-    rewardCount: 10,
-    completedRewards: 0
+    rewardCount: 20,
+    completedRewards: 0,
+    lastTask: 0
 };
 
 var rewardArrayCoins = [];
-var rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen'];
+const rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen'];
+
+const infiniteTasks = ['advideotask', 'download', 'sponsormemory', 'closetheads'];
 
 for (var i = 1; i <= globalData.rewardCount; i++) {
     rewardArrayCoins.push(i * 5000);
@@ -15,19 +18,35 @@ for (var i = 1; i <= globalData.rewardCount; i++) {
 
 console.log(rewardArrayCoins)
 
-// Load existing data from local storage
+// Load existing CointCount from local storage
 var savedCoinCount = localStorage.getItem('coinCount');
 if (savedCoinCount !== null) {
     globalData.coinCount = parseInt(savedCoinCount);
 }
 
-// Load existing data from local storage
+// Load existing completedRewards from local storage
 var savedCompletedRewards = localStorage.getItem('completedRewards');
 if (savedCompletedRewards !== null) {
     globalData.completedRewards = parseInt(savedCompletedRewards);
 }
 
+// Load existing lastTask from local storage
+var savedLastTask = localStorage.getItem('lastTask');
+if (savedLastTask !== null) {
+    globalData.lastTask = parseInt(savedLastTask);
+}
+
+///////////////////////// GO BACK TO INDEX ////////////////////////
+document.addEventListener('keydown', function(event) {
+    //go back to the landingpage by pressing shift and +
+    if (event.key == '*') {
+        console.log('both key pressed!');
+        window.location.href = 'index.html';
+    }
+});
+
 function createRewardSystem() {
+    ///////////////////////// CREATE REWARDS HEADER ELEMENT ////////////////////////
     // Create rewards header
     var rewardsHeader = document.createElement('div');
     rewardsHeader.id = 'rewards-toggle';
@@ -71,7 +90,9 @@ function createRewardSystem() {
 
     // Append rewards header to body
     document.body.appendChild(rewardsHeader);
+    ///////////////////////// END REWARDS HEADER ELEMENT ////////////////////////
 
+    ////////////////////////// CREATE REWARDS ELEMENT ////////////////////////////
     // Create reward system container
     var rewardSystemContainer = document.createElement('div');
     rewardSystemContainer.id = 'reward-system-id';
@@ -122,8 +143,42 @@ function createRewardSystem() {
 
     // Append reward system container to body
     document.body.appendChild(rewardSystemContainer);
+    ////////////////////////// END REWARDS ELEMENT ////////////////////////////
 
+    ////////////////// CREATE NEW REWARD UNLOCKED ELEMENT /////////////////////
+    // Create reward unlock
+    var rewardUnlocked = document.createElement('div');
+    rewardUnlocked.id = 'reward-unlocked-id';
+    rewardUnlocked.className = 'reward-unlocked';
 
+    // Create unlock image
+    var unlockImage = document.createElement('img');
+    unlockImage.className = 'unlock-img';
+    unlockImage.src = 'img/rewards_trophy_icon.png';
+    unlockImage.alt = 'unlock icon';
+
+    // Create unlock text
+    var unlockTextWrap = document.createElement('div');
+    unlockTextWrap.className = 'unlock-text-wrap';
+
+    var unlockText = document.createElement('p');
+    unlockText.className = 'unlock-text';
+    unlockText.textContent = 'Neuer Reward freigeschalten!';
+
+    var unlockRewardTitle = document.createElement('p');
+    unlockRewardTitle.className = 'unlock-reward-title';
+    unlockRewardTitle.textContent = 'Placeholder-Text for Title';
+
+    unlockTextWrap.appendChild(unlockText);
+    unlockTextWrap.appendChild(unlockRewardTitle);
+
+    // Append elements to rewards header
+    rewardUnlocked.appendChild(unlockImage);
+    rewardUnlocked.appendChild(unlockTextWrap);
+
+    // Append rewards header to body
+    document.body.appendChild(rewardUnlocked);
+    ////////////////// END NEW REWARD UNLOCKED ELEMENT /////////////////////
 
     //////////////////// CREATE GET COINS ELEMENT //////////////////////////
     var getCoinsDiv = document.createElement('div');
@@ -193,6 +248,7 @@ function checkForRewards() {
             if (i > globalData.completedRewards) {
                 console.log("completedRewards" + globalData.completedRewards);
                 globalData.completedRewards++;
+                document.getElementById('reward-unlocked-id').classList.toggle('show-unlock');
                 //alert("Reward " + i + " unlocked!"); /
 
                 // Save the updated coin count to local storage
@@ -215,3 +271,108 @@ function rewardSystemFunctionality() {
         rewardsHeader.classList.toggle('header-wide'); // Header breiter machen bei klick
     });
 }
+
+/* function typeWriter(textElement, textContent) {
+    console.log(textContent);
+
+    var i = 0;
+    var speed = 0.1; // Adjust the typing speed (milliseconds per character)
+  
+    function type() {
+      if (i < textContent.length) {
+        var randomDelay = Math.random() * 5; // Random delay between 0 and 100 milliseconds
+
+        setTimeout(function() {
+            if (textContent.charAt(i) == '<') {
+                textElement.appendChild(document.createElement('br'));
+                i += 3;
+            } else {
+                textElement.innerHTML += textContent.charAt(i);
+            }
+            i++;
+
+            type();
+          }, speed + randomDelay);
+      }
+    }
+  
+    type();
+  } */
+
+function typeWriter(textElement, textContent) {
+    //console.log(textContent);
+
+    var i = 0;
+    var speed = 0.001; // Adjust the typing speed (milliseconds per character)
+
+    function type(timestamp) {
+        if (!start) start = timestamp;
+        var progress = timestamp - start;
+
+        if (progress > speed) {
+            start = timestamp;
+            if (i < textContent.length) {
+                if (textContent.charAt(i) == '<') {
+                    textElement.appendChild(document.createElement('br'));
+                    i += 3;
+                } else {
+                    textElement.innerHTML += textContent.charAt(i);
+                }
+                i++;
+            }
+        }
+
+        if (i < textContent.length) {
+            requestAnimationFrame(type);
+        }
+    }
+
+    var start = null;
+    requestAnimationFrame(type);
+}
+
+function chooseRandomTask() {
+
+    var randomTaskNumber = Math.round(Math.random() * 3);
+    console.log('lasttask' + globalData.lastTask)
+    console.log('Tasknumber: ' + randomTaskNumber + ',' + infiniteTasks[randomTaskNumber])
+    if (randomTaskNumber != globalData.lastTask) {
+        var randomTask = infiniteTasks[randomTaskNumber];
+        globalData.lastTask = randomTaskNumber;
+
+        // Save the updated coin count to local storage
+        localStorage.setItem('lastTask', globalData.lastTask.toString());
+
+        // Use a switch statement to determine which HTML file to open based on the task
+        switch (randomTask) {
+            case 'advideotask':
+                console.log(randomTask)
+                setTimeout(() => {
+                    window.location.href = 'advideotask.html';
+                }, "2000");
+                break;
+            case 'download':
+                console.log(randomTask)
+                setTimeout(() => {
+                    window.location.href = 'download.html';
+                }, "2000");
+                break;
+            case 'sponsormemory':
+                console.log(randomTask)
+                setTimeout(() => {
+                    window.location.href = 'sponsormemory.html';
+                }, "2000");
+                break;
+            case 'closetheads':
+                console.log(randomTask)
+                setTimeout(() => {
+                    window.location.href = 'closetheads.html';
+                }, "2000");
+                break;
+            default:
+                console.log("Unknown task:", randomTask);
+        }
+    } else {
+        chooseRandomTask();
+    }
+};
