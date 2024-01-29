@@ -6,12 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
   enterFullScreen(document.documentElement); // für den gesamten Tab
 
   const delay = 5000; // Verzögerung von 5 Sekunden
+  const adVideoSources = [
+    'img/Werbevideos/Pflanzen_shopping.mp4',
+    'img/Werbevideos/second_part_short.mp4',
+    'img/Werbevideos/Waschmaschine_werbung.mp4',
+    'img/Werbevideos/Werbevideo.mp4'
+  ]
 
   setTimeout(() => {
     const videoPopup = document.getElementById('videoPopup');
     const videoElement = document.getElementById('adVideo');
 
-
+    //Choose Random Video
+    var randomVideoAdNumber = Math.floor(Math.random() * adVideoSources.length);
+    var randomVideoAd = adVideoSources[randomVideoAdNumber];
+    videoElement.src = randomVideoAd;
 
     if (videoElement) {
       videoElement.onended = () => {
