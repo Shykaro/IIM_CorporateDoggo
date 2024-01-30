@@ -6,13 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   addCoins();
   enterFullScreen(document.documentElement); // für den gesamten Tab
 
+  var allMovingAdsArray = [];
+
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  function createMovingAds() {
+  function createMovingAds(adNumber) {
     var movingAd = document.createElement('div');
     movingAd.className = 'moving-ad';
+    movingAd.id = 'ad-' + adNumber;
 
     var innerAd = document.createElement('div');
     innerAd.className = 'inner-ad';
@@ -24,9 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     movingAd.appendChild(innerAd);
     document.body.appendChild(movingAd);
 
+    allMovingAdsArray.push(movingAd);
+
+    //Ad event listener for closing the ads
     adClose.addEventListener('click', () => {
       console.log('Close Btuuon cicken')
+      document.body.removeChild(document.getElementById('ad-'+adNumber));
+      allMovingAdsArray.pop();
+      console.log('MovingAds Array:' + allMovingAdsArray + 'length:' + allMovingAdsArray.length)
 
+      //Go to other task when all ads were closed
+      if (allMovingAdsArray.length == 0) {
+        chooseRandomTask();
+      }
   });
 
     return movingAd;
@@ -50,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   for (let i = 0; i < 10; i++) {
-    var div = createMovingAds();
+    var div = createMovingAds(i);
 
     //Aspect Ratio for the created divs
     var aspectRatioWidth = 4;

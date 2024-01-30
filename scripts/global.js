@@ -8,7 +8,8 @@ var globalData = {
 };
 
 var rewardArrayCoins = [];
-const rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen'];
+const rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen', 'Max bekommt seine Medikamente'];
+const rewardArrayIcons = []
 
 const infiniteTasks = ['advideotask', 'download', 'sponsormemory', 'closetheads'];
 
