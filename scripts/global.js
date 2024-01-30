@@ -8,8 +8,15 @@ var globalData = {
 };
 
 var rewardArrayCoins = [];
-const rewardArrayNames = ['Essen für Max', 'Einen Knochen', 'Max darf aus dem Käfig', 'Frühstück für Max', 'Darf mit anderen Hunden spielen', 'Max bekommt seine Medikamente'];
-const rewardArrayIcons = []
+const rewardArrayNames = [
+    {title: 'Essen für Max', icon: 'img/rewardIcons/dog_food_icon.png'},
+    {title: 'Einen Knochen', icon: 'img/rewardIcons/bone_icon.png'},
+    {title: 'Max darf aus dem Käfig', icon: 'img/rewardIcons/golden_open_cage_icon.png'},
+    {title: 'Frühstück für Max', icon: 'img/rewardIcons/dog_breakfast_icon.png'},
+    {title: 'Darf mit anderen Hunden spielen', icon: 'img/rewardIcons/dogs_play_icon.png'},
+    {title: 'Max bekommt seine Medikamente', icon: 'img/rewardIcons/dog_meds_icon.png'},
+    {title: 'Max wird heute nicht mehr geschlagen', icon: 'img/rewardIcons/peitsche_stop_icon.png'}
+];
 
 const infiniteTasks = ['advideotask', 'download', 'sponsormemory', 'closetheads'];
 
@@ -54,7 +61,7 @@ function createRewardSystem() {
     // Create trophy image
     var trophyImage = document.createElement('img');
     trophyImage.className = 'trophy-img';
-    trophyImage.src = 'img/rewards_trophy_icon.png';
+    trophyImage.src = 'img/rewardIcons/rewards_trophy_icon.png';
     trophyImage.alt = 'reward icon';
 
     // Create rewards headline
@@ -109,17 +116,22 @@ function createRewardSystem() {
 
         var rewardImage = document.createElement('img');
         rewardImage.className = 'reward-img';
-        rewardImage.src = 'img/rewards_trophy_icon.png';
+        rewardImage.id = 'reward' + i + 'img';
+        //rewardImage.src = 'img/rewardIcons/rewards_trophy_icon.png';
 
         var rewardTextContainer = document.createElement('div');
 
         var rewardTitle = document.createElement('p');
+        rewardTitle.id = 'reward' + i + 'title';
+
         if ((i - 1) >= rewardArrayNames.length) {
             var randomReward = Math.floor(Math.random() * (rewardArrayNames.length - 1)) + 1;
             //console.log(randomReward);
-            rewardTitle.textContent = rewardArrayNames[randomReward];
+            rewardTitle.textContent = rewardArrayNames[randomReward].title;
+            rewardImage.src = rewardArrayNames[randomReward].icon;
         } else {
-            rewardTitle.textContent = rewardArrayNames[i - 1];
+            rewardTitle.textContent = rewardArrayNames[i - 1].title;
+            rewardImage.src = rewardArrayNames[i - 1].icon;
         }
 
         var rewardCoins = document.createElement('p');
@@ -153,7 +165,8 @@ function createRewardSystem() {
     // Create unlock image
     var unlockImage = document.createElement('img');
     unlockImage.className = 'unlock-img';
-    unlockImage.src = 'img/rewards_trophy_icon.png';
+    unlockImage.id = 'unlock-img-id';
+    unlockImage.src = 'img/rewardIcons/rewards_trophy_icon.png';
     unlockImage.alt = 'unlock icon';
 
     // Create unlock text
@@ -166,7 +179,7 @@ function createRewardSystem() {
 
     var unlockRewardTitle = document.createElement('p');
     unlockRewardTitle.className = 'unlock-reward-title';
-    unlockRewardTitle.textContent = 'Placeholder-Text for Title';
+    unlockRewardTitle.id = 'unlock-reward-title-id';
 
     unlockTextWrap.appendChild(unlockText);
     unlockTextWrap.appendChild(unlockRewardTitle);
@@ -191,7 +204,7 @@ function createRewardSystem() {
 
     // Set attributes for the image
     coinsImg.className = 'get-coins-img';
-    coinsImg.src = 'img/bone_coin.png';
+    coinsImg.src = 'img/rewardIcons/bone_coin.png';
     coinsImg.alt = 'coin icon';
 
     // Create a paragraph element
@@ -247,6 +260,9 @@ function checkForRewards() {
             if (i > globalData.completedRewards) {
                 console.log("completedRewards" + globalData.completedRewards);
                 globalData.completedRewards++;
+                document.getElementById('unlock-reward-title-id').innerHTML = document.getElementById('reward' + i + 'title').innerHTML;
+                document.getElementById('unlock-img-id').src = document.getElementById('reward' + i + 'img').src;
+
                 document.getElementById('reward-unlocked-id').classList.toggle('show-unlock');
                 //alert("Reward " + i + " unlocked!"); /
 
