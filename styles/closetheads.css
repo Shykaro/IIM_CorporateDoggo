@@ -16,3 +16,40 @@ body {
     background-color: #3498db;
     border-radius: 5px;
 }
+
+.inner-ad {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.ad-close-x {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+}
+
+.ad-close-x:hover {
+    opacity: 1;
+}
+
+.ad-close-x:before, .ad-close-x:after {
+    position: absolute;
+    left: 10px;
+    content: ' ';
+    height: 21px;
+    width: 2px;
+    background-color: #333;
+}
+
+.ad-close-x:before {
+    transform: rotate(45deg);
+}
+
+.ad-close-x:after {
+    transform: rotate(-45deg);
+}

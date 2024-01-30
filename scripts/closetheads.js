@@ -1,13 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  createNarrator();
   createRewardSystem();
   rewardSystemFunctionality();
   addCoins();
   enterFullScreen(document.documentElement); // für den gesamten Tab
 
-
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
+  }
+
+  function createMovingAds() {
+    var movingAd = document.createElement('div');
+    movingAd.className = 'moving-ad';
+
+    var innerAd = document.createElement('div');
+    innerAd.className = 'inner-ad';
+
+    var adClose = document.createElement('div');
+    adClose.className = 'ad-close-x';
+
+    innerAd.appendChild(adClose);
+    movingAd.appendChild(innerAd);
+    document.body.appendChild(movingAd);
+
+    adClose.addEventListener('click', () => {
+      console.log('Close Btuuon cicken')
+
+  });
+
+    return movingAd;
   }
 
   function moveDiv(div, speedX, speedY) {
@@ -27,34 +49,35 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => moveDiv(div, speedX, speedY));
   }
 
-  function createDivs() {
-    console.log("start creating divs")
+  for (let i = 0; i < 10; i++) {
+    var div = createMovingAds();
 
-    for (let i = 0; i < 5; i++) {
-      var div = document.createElement('div');
-      div.className = 'moving-ad';
-      document.body.appendChild(div);
+    //Aspect Ratio for the created divs
+    var aspectRatioWidth = 4;
+    var aspectRatioHeight = 3;
 
-      var min = 20;
-      var max = 100
+    //Min and Max sizes for the ad divs
+    var min = 300;
+    var max = 600;
 
-      var size = getRandomNumber(min, max);
-      var x = getRandomNumber(0, window.innerWidth - size);
-      var y = getRandomNumber(0, window.innerHeight - size);
+    var width = getRandomNumber(min, max);
+    var height = (width / aspectRatioWidth) * aspectRatioHeight;
+    
+    var x = getRandomNumber(0, window.innerWidth - width);
+    var y = getRandomNumber(0, window.innerHeight - height);
 
-      div.style.width = size + 'px';
-      div.style.height = size + 'px';
-      div.style.left = x + 'px';
-      div.style.top = y + 'px';
+    div.style.width = width + 'px';
+    div.style.height = height + 'px';
+    div.style.left = x + 'px';
+    div.style.top = y + 'px';
 
-      var speedX = getRandomNumber(1, 5) * (Math.random() < 0.5 ? 1 : -1);
-      var speedY = getRandomNumber(1, 5) * (Math.random() < 0.5 ? 1 : -1);
+    var speedX = getRandomNumber(1, 2) * (Math.random() < 0.5 ? 1 : -1);
+    var speedY = getRandomNumber(1, 2) * (Math.random() < 0.5 ? 1 : -1);
 
-      moveDiv(div, speedX, speedY);
-    }
+    moveDiv(div, speedX, speedY);
   }
 
-  createDivs();
+
 
   //////////////////////////////// NARRATOR CODE ////////////////////////////////
   const characterIcon = document.getElementById('character-icon');
@@ -81,16 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
   function updateBubbleText() {
     setTimeout(() => {
-      showBubble("Max hat sich verlaufen. Helfe Max aus dem Labyrinth!", 3000);
+      showBubble("Schnell, schließe die Werbeanzeigen!", 3000);
     }, 1000);
 
     setTimeout(() => {
-      showBubble("Oh da kam wohl eine Werbeanzeige dazwischen, die ist bestimmt gleich wieder weg.", 6000);
-    }, 6000);
-
-    setTimeout(() => {
-      showBubble("Scheint als ist die Aufgabe schon verschwunden. Aber macht nichts. Danke!", 8000);
-    }, 20000);
+      showBubble("Echt schlimm mit dieser ganzen Werbung online. Wer lässt sowas bitte auf seiner Webseite zu?", 8000);
+    }, 10000);
   }
 
   updateBubbleText();

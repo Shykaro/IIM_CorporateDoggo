@@ -35,7 +35,7 @@ if (savedLastTask !== null) {
 }
 
 ///////////////////////// GO BACK TO INDEX ////////////////////////
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     //go back to the landingpage by pressing shift and +
     if (event.key == '*') {
         console.log('both key pressed!');
@@ -269,6 +269,37 @@ function rewardSystemFunctionality() {
         rewardsHeader.classList.toggle('header-wide'); // Header breiter machen bei klick
     });
 }
+
+//////////////////// CREATE NARRATOR ELEMENT //////////////////////////
+function createNarrator() {
+    // Create the character-container div
+    const characterContainer = document.createElement('div');
+    characterContainer.id = 'character-container';
+
+    // Create the character-icon div with an image
+    const characterIcon = document.createElement('div');
+    characterIcon.id = 'character-icon';
+
+    const narratorImg = document.createElement('img');
+    narratorImg.id = 'narrator_img';
+    narratorImg.src = 'img/happy_user_cut.png';
+    narratorImg.alt = 'narrator';
+
+    characterIcon.appendChild(narratorImg);
+
+    // Create the speech-bubble div (initially hidden)
+    const speechBubble = document.createElement('div');
+    speechBubble.id = 'speech-bubble';
+    speechBubble.classList.add('hidden');
+
+    // Append the elements to the character-container
+    characterContainer.appendChild(characterIcon);
+    characterContainer.appendChild(speechBubble);
+
+    // Append the character-container to the document body
+    document.body.appendChild(characterContainer);
+}
+//////////////////// END NARRATOR ELEMENT //////////////////////////
 
 /* function typeWriter(textElement, textContent) {
     console.log(textContent);
