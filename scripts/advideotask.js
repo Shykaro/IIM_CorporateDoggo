@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (videoElement) {
       videoElement.onended = () => {
+
+        showBubble("Scheint als ist die Aufgabe schon verschwunden. Aber macht nichts. Danke!", 8000);
+
         setTimeout(() => {
           chooseRandomTask(); // URL anpassen
         }, 3000); // 3000 Millisekunden Verzögerung
@@ -113,10 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       showBubble("Oh da kam wohl eine Werbeanzeige dazwischen, die ist bestimmt gleich wieder weg.", 6000);
     }, 6000);
-
-    setTimeout(() => {
-      showBubble("Scheint als ist die Aufgabe schon verschwunden. Aber macht nichts. Danke!", 8000);
-    }, 20000);
   }
 
   updateBubbleText();

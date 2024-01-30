@@ -16,8 +16,6 @@ for (var i = 1; i <= globalData.rewardCount; i++) {
     rewardArrayCoins.push(i * 5000);
 }
 
-console.log(rewardArrayCoins)
-
 // Load existing CointCount from local storage
 var savedCoinCount = localStorage.getItem('coinCount');
 if (savedCoinCount !== null) {
@@ -117,7 +115,7 @@ function createRewardSystem() {
         var rewardTitle = document.createElement('p');
         if ((i - 1) >= rewardArrayNames.length) {
             var randomReward = Math.floor(Math.random() * (rewardArrayNames.length - 1)) + 1;
-            console.log(randomReward);
+            //console.log(randomReward);
             rewardTitle.textContent = rewardArrayNames[randomReward];
         } else {
             rewardTitle.textContent = rewardArrayNames[i - 1];
@@ -226,7 +224,7 @@ function addCoins() {
     setTimeout(() => {
         showAddCoins.classList.toggle('receive-coins');
     }, "500");
-    console.log("coinCount:" + globalData.coinCount);
+    console.log("coinCount: " + globalData.coinCount);
 
     // Save the updated coin count to local storage
     localStorage.setItem('coinCount', globalData.coinCount.toString());
@@ -346,25 +344,21 @@ function chooseRandomTask() {
         // Use a switch statement to determine which HTML file to open based on the task
         switch (randomTask) {
             case 'advideotask':
-                console.log(randomTask)
                 setTimeout(() => {
                     window.location.href = 'advideotask.html';
                 }, "2000");
                 break;
             case 'download':
-                console.log(randomTask)
                 setTimeout(() => {
                     window.location.href = 'download.html';
                 }, "2000");
                 break;
             case 'sponsormemory':
-                console.log(randomTask)
                 setTimeout(() => {
                     window.location.href = 'sponsormemory.html';
                 }, "2000");
                 break;
             case 'closetheads':
-                console.log(randomTask)
                 setTimeout(() => {
                     window.location.href = 'closetheads.html';
                 }, "2000");
