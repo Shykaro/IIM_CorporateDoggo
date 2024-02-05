@@ -20,12 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     var innerAd = document.createElement('div');
     innerAd.className = 'inner-ad';
 
+    var adVideo = document.createElement('video');
+    adVideo.className = 'ad-video';
+    adVideo.src = 'img/Werbevideos/Waschmaschine_werbung.mp4';
+
     var adClose = document.createElement('div');
     adClose.className = 'ad-close-x';
 
     innerAd.appendChild(adClose);
+    innerAd.appendChild(adVideo);
     movingAd.appendChild(innerAd);
     document.body.appendChild(movingAd);
+
+    adVideo.play().catch(e => {
+      console.error('Fehler beim Abspielen des Videos: ', e);
+    });
 
     allMovingAdsArray.push(movingAd);
 

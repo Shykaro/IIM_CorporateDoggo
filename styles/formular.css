@@ -5,121 +5,150 @@
     width: 100vw;
     height: 100vh;
     font-family: 'pacifico', cursive;
-    flex-direction: column; /* Wechsel von row zu column */
-    justify-content: center; /* Zentriert den Inhalt vertikal */
-    align-items: center; /* Zentriert den Inhalt horizontal */
+    flex-direction: column;
+    /* Wechsel von row zu column */
+    justify-content: center;
+    /* Zentriert den Inhalt vertikal */
+    align-items: center;
+    /* Zentriert den Inhalt horizontal */
 }
 
 .form-container {
     border-radius: 20px;
     text-align: center;
-    background-color: transparent; /* Set background to transparent */
+    background-color: transparent;
+    /* Set background to transparent */
     display: flex;
-    justify-content: flex-start; /* Start alignment on the main axis */
-    align-items: flex-start; /* Start alignment on the cross axis */
-    width: auto; /* Adjust as needed */
-    padding: 0; /* Remove padding if not needed */
+    justify-content: flex-start;
+    /* Start alignment on the main axis */
+    align-items: flex-start;
+    /* Start alignment on the cross axis */
+    width: auto;
+    /* Adjust as needed */
+    padding: 0;
+    /* Remove padding if not needed */
 }
 
 .left-section {
-    margin-right: 20px; /* Add some space between sections */
+    margin-right: 20px;
+    /* Add some space between sections */
 }
 
 .right-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the left */
+    align-items: flex-start;
+    /* Align text to the left */
 }
 
 .profile-pic {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Kreisförmig */
-    overflow: hidden; /* Schneidet alles außerhalb des Kreises ab */
-    border: 5px solid #fff; /* Optionaler weißer Rahmen */
+    border-radius: 50%;
+    /* Kreisförmig */
+    overflow: hidden;
+    /* Schneidet alles außerhalb des Kreises ab */
+    border: 5px solid #fff;
+    /* Optionaler weißer Rahmen */
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
 .profile-pic video {
-    min-width: 100%; /* Mindestens die Breite des Containers */
-    min-height: 100%; /* Mindestens die Höhe des Containers */
-    /* Die nächsten zwei Eigenschaften zentrieren das Video im Container */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: cover; /* Video wird beschnitten, um den Container zu füllen */
+    object-fit: cover;
+    transform: scaleX(-1);
+    width: 150px;
+    height: 150px;
 }
 
 h1 {
     color: #ffffff;
     margin-bottom: 20px;
-    font-size: 48px; /* Adjust the size as needed */
+    font-size: 48px;
+    /* Adjust the size as needed */
     text-align: center;
-    width: 100%; /* Stellt sicher, dass der Titel die volle Breite einnimmt */
+    width: 100%;
+    /* Stellt sicher, dass der Titel die volle Breite einnimmt */
 }
 
-.left-section, .right-section {
+.left-section,
+.right-section {
     /* ... existing styles ... */
-    align-items: flex-start; /* Align items to the start of the cross axis */
+    align-items: flex-start;
+    /* Align items to the start of the cross axis */
 }
 
 .input-group.name,
 .input-group.age,
 .input-group.gender {
-    width: auto; /* Adjust width as needed */
+    width: auto;
+    /* Adjust width as needed */
 }
 
 .input-group.age,
 .input-group.gender {
-    display: inline-block; /* Align side by side */
-    width: calc(50% - 10px); /* Adjust width as needed, considering margin */
-    margin-right: 20px; /* Add some space between inputs */
+    display: inline-block;
+    /* Align side by side */
+    width: calc(50% - 10px);
+    /* Adjust width as needed, considering margin */
+    margin-right: 20px;
+    /* Add some space between inputs */
 }
 
 .input-group.gender {
-    margin-right: 0; /* No margin on the right for the last element */
+    margin-right: 0;
+    /* No margin on the right for the last element */
 }
 
 .input-group input,
 .input-group select {
-    width: 100%; /* Füllt den umgebenden .input-group Container aus */
-    padding: 10px; /* Sorgt für etwas Innenabstand */
-    margin-bottom: 15px; /* Einheitlicher unterer Abstand für alle Eingabefelder */
-    border: 1px solid #ccc; /* Einheitliche Border-Einstellungen */
-    border-radius: 5px; /* Abgerundete Ecken */
-    height: 40px; /* Einheitliche Höhe für alle Eingabefelder */
-    box-sizing: border-box; /* Stellt sicher, dass padding und border innerhalb der Höhe enthalten sind */
+    width: 100%;
+    /* Füllt den umgebenden .input-group Container aus */
+    padding: 10px;
+    /* Sorgt für etwas Innenabstand */
+    margin-bottom: 15px;
+    /* Einheitlicher unterer Abstand für alle Eingabefelder */
+    border: 1px solid #ccc;
+    /* Einheitliche Border-Einstellungen */
+    border-radius: 5px;
+    /* Abgerundete Ecken */
+    height: 40px;
+    /* Einheitliche Höhe für alle Eingabefelder */
+    box-sizing: border-box;
+    /* Stellt sicher, dass padding und border innerhalb der Höhe enthalten sind */
 }
 
 .input-row {
     display: flex;
-    align-items: center; /* Zentriert die Felder vertikal */
-    justify-content: start; /* Ausrichtung am Anfang für linke Ausrichtung */
-    gap: 10px; /* Fügt einen Abstand zwischen den Feldern hinzu */
+    align-items: center;
+    /* Zentriert die Felder vertikal */
+    justify-content: start;
+    /* Ausrichtung am Anfang für linke Ausrichtung */
+    gap: 10px;
+    /* Fügt einen Abstand zwischen den Feldern hinzu */
 }
 
-.input-row > .input-group {
-    flex: 1; /* Beide Felder teilen sich den Platz */
+.input-row>.input-group {
+    flex: 1;
+    /* Beide Felder teilen sich den Platz */
 }
 
 
 
 .input-group.age,
 .input-group.gender {
-    margin-bottom: 15px; /* Fügt am Ende eines jeden Eingabefeldes Abstand hinzu */
+    margin-bottom: 15px;
+    /* Fügt am Ende eines jeden Eingabefeldes Abstand hinzu */
 }
 
 .input-group.gender {
-    margin-left: 10px; /* Fügt einen Abstand zwischen den Feldern hinzu */
+    margin-left: 10px;
+    /* Fügt einen Abstand zwischen den Feldern hinzu */
 }
 
 .submit-btn {
-    width: auto; /* Entfernt die feste Breite */
+    width: auto;
+    /* Entfernt die feste Breite */
     padding: 10px 20px;
     width: 400px;
     height: 50px;
@@ -130,15 +159,22 @@ h1 {
     font-family: Inter;
     font-size: 25px;
     font-weight: 800;
-    margin-top: 20px; /* Add space above the submit button */
+    margin-top: 20px;
+    /* Add space above the submit button */
 
-    width: auto; /* Entfernt die feste Breite */
-    height: 50px; /* Einheitliche Höhe */
-    padding: 0 20px; /* Einheitliches Padding */
-    margin-top: 20px; /* Fügt Abstand nach oben hinzu */
-    align-self: center; /* Zentriert den Button */
+    width: auto;
+    /* Entfernt die feste Breite */
+    height: 50px;
+    /* Einheitliche Höhe */
+    padding: 0 20px;
+    /* Einheitliches Padding */
+    margin-top: 20px;
+    /* Fügt Abstand nach oben hinzu */
+    align-self: center;
+    /* Zentriert den Button */
 }
 
 .submit-btn:hover {
-    background-color: #E63900; /* Darker shade for hover effect */
+    background-color: #E63900;
+    /* Darker shade for hover effect */
 }
