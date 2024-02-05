@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var scrollContainer = document.querySelector('.rectangle-3');
   var customScrollbar = document.querySelector('.rectangle-2');
+  var isTyping = false; // Status der Typewriter-Animation
   var textList = [
     "Abschnitt II: Optimierung der Spielerfahrung: Zugriff auf Gerätefunktionen<br><br>Durch die aktive Teilnahme an diesem Spiel erklären Sie Ihr ausdrückliches Einverständnis, dass The Happy Company berechtigt ist, auf verschiedene Funktionen Ihres Geräts zuzugreifen. Dazu gehören, sind jedoch nicht darauf beschränkt, das Mikrofon, die Kamera und andere Eingabemöglichkeiten. Diese Berechtigungen sind strikt darauf ausgerichtet, die Funktionalität des Spiels zu optimieren und Ihre gesamte Spielerfahrung zu verbessern.<br><br>Konkret bedeutet dies, dass das Spiel beispielsweise auf das Mikrofon zugreifen kann, um Ihnen interaktive Audioelemente zu bieten oder möglicherweise Sprachsteuerungsfunktionen zu ermöglichen. Der Zugriff auf die Kamera könnte für Augmented-Reality-Features oder personalisierte visuelle Elemente innerhalb des Spiels genutzt werden. Die Erlaubnis für andere Eingabemöglichkeiten könnte dazu dienen, die Interaktion und Steuerung im Spiel zu erleichtern.<br><br>Es ist wichtig zu betonen, dass diese Zugriffe ausschließlich dem Zweck dienen, Ihr Spielerlebnis zu bereichern, und The Happy Company wird Ihre persönlichen Informationen mit höchster Vertraulichkeit behandeln. Ihre Zustimmung zu diesen Zugriffen ermöglicht es uns, innovative Funktionen zu entwickeln und Ihnen eine unterhaltsame und interaktive Spielerfahrung zu bieten.<br><br><br>",
     "Abschnitt III: Münzen und Belohnungen im Spiel<br><br>Durch Ihre Beteiligung am Spiel Hilf Max dem Hund! haben Sie die Möglichkeit, Münzen zu sammeln und verschiedene Belohnungen zu erwerben. Es ist wichtig zu betonen, dass diese Münzen keinen monetären Wert haben und in keiner Weise in echte Währung umgewandelt werden können. Die gesammelten Münzen sind ausschließlich für den Gebrauch innerhalb des Spiels bestimmt und haben keinerlei Verwendungszweck außerhalb des virtuellen Spielszenarios.<br><br>Die angebotenen Belohnungen im Spiel dienen als Anreiz für Ihr Engagement und Ihre aktive Teilnahme. Es ist jedoch wichtig zu verstehen, dass die Verfügbarkeit und Einlösung dieser Belohnungen vollständig im Ermessen von The Happy Company liegen. Wir behalten uns das Recht vor, die Art, den Umfang und die Verfügbarkeit der Belohnungen jederzeit und ohne vorherige Ankündigung zu ändern.<br><br>Wir weisen darauf hin, dass die im Spiel angepriesenen Belohnungen lediglich virtuelle Güter darstellen und keinerlei materiellen oder realen Wert haben. The Happy Company behält sich außerdem das Recht vor, Belohnungen nach eigenem Ermessen einzulösen oder nicht, ohne dass dies zu einer Verpflichtung gegenüber den Spielern führt.<br><br>Wir bitten Sie, diese Informationen sorgfältig zu berücksichtigen und zu akzeptieren, dass die Münzen und Belohnungen im Spiel ausschließlich für den virtuellen Gebrauch bestimmt sind und nicht übertragbar oder in irgendeiner Form außerhalb des Spiels genutzt werden können.<br><br><br>",
@@ -19,56 +20,54 @@ document.addEventListener("DOMContentLoaded", function () {
     var scrollableHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
     var scrollbarHeight = (scrollContainer.clientHeight / scrollContainer.scrollHeight) * 100;
     var scrollbarTop = (scrollContainer.scrollTop / scrollableHeight) * (scrollContainer.clientHeight - (scrollbarHeight / 100 * scrollContainer.clientHeight));
-
     customScrollbar.style.height = scrollbarHeight + "%";
-    customScrollbar.style.top = scrollbarTop + "px"; // Hier wird 'px' verwendet
+    customScrollbar.style.top = scrollbarTop + "px";
   }
 
-  var currentTextIndex = 0; // Hält den Index des aktuellen Textes
+  var currentTextIndex = 0;
 
   function loadMoreContent() {
-    if (scrollContainer.scrollTop + scrollContainer.clientHeight >= scrollContainer.scrollHeight) {
+    if (!isTyping && scrollContainer.scrollTop + scrollContainer.clientHeight >= scrollContainer.scrollHeight) {
       if (currentTextIndex < textList.length) {
         var newText = document.createElement("p");
         newText.classList.add("lorem-ipsum-dolor");
         newText.classList.add("typewriter");
-
-        /* newText.innerHTML = textList[currentTextIndex]; */
-
         scrollContainer.appendChild(newText);
 
-        typeWriter(newText, textList[currentTextIndex]);
-
-        //typeWriter(newText, textList[currentTextIndex]);
-
-        /* if (currentTextIndex === textList.length - 1) { // Überprüfen, ob es das Ende der Liste ist
+        typeWriter(newText, textList[currentTextIndex], function() {
+          // Callback-Funktion, wenn Typewriter fertig ist
+          isTyping = false; // Setzt isTyping zurück, wenn die Animation abgeschlossen ist
+          if (currentTextIndex === textList.length - 1) {
             handleSpecialAction();
-        } */
+          }
+        });
 
         updateScrollbar();
         currentTextIndex++;
+        isTyping = true; // Setzt isTyping, während die Animation läuft
       }
     }
   }
 
-
-  /* function handleSpecialAction() {
-      var specialMessage = document.createElement("p");
-      specialMessage.classList.add("lorem-ipsum-dolor");
-      specialMessage.textContent = "Danke fürs Annehmen.";
-      scrollContainer.appendChild(specialMessage);
-  
-      // Weiterleitung nach einer kurzen Verzögerung
+  function typeWriter(element, text, callback, index = 0, speed = 1) {
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      index++;
       setTimeout(function() {
-          window.location.href = './formular.html'; // Setzen Sie hier Ihre Ziel-URL ein
-      }, 2000); // Verzögerung von 2 Sekunden
-  } */
+        typeWriter(element, text, callback, index, speed);
+      }, speed);
+    } else if (callback) {
+      callback();
+    }
+  }
 
-  scrollContainer.addEventListener('scroll', function () {
-    updateScrollbar();
-    loadMoreContent(); // Rufe diese Funktion beim Scrollen auf
-  });
+  function handleSpecialAction() {
+    setTimeout(function() {
+        window.location.href = './formular.html'; // Ziel-URL
+    }, 2000); // Verzögerung vor der Weiterleitung
+  }
 
+  scrollContainer.addEventListener('scroll', loadMoreContent);
   updateScrollbar(); // Initialer Aufruf zum Setzen der Scrollbar
 
   //////////////////////////////// NARRATOR CODE ////////////////////////////////
