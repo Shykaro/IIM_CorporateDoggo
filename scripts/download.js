@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     createRewardSystem();
     rewardSystemFunctionality();
     addCoins();
-    enterFullScreen(document.documentElement); // für den gesamten Tab
+    //enterFullScreen(document.documentElement); // für den gesamten Tab
 
 
-    var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_red_old.png', './img/Download_blue_old.png', './img/Upload_purple_old.png'];
+    var images = ['./img/Malware_anzeige.png', './img/Upload_green_fake.png', './img/Download_red_fake.png', './img/Download_blue_fake.png', './img/Upload_purple_fake.png'];
     var divs = []; // Array zum Speichern der erstellten divs
     const downloadNamesArray = ['malware.exe', 'anti-virus.exe', 'ghx44sfe_53x.msi', '16kVideoDownloader.exe', 'maxthedog.png.exe']
     var downloadListlength = 0;
@@ -77,14 +77,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         var randomImage = images[getRandomNumber(0, images.length - 1)];
         img.src = randomImage;
 
-        img.onload = function () {
-            var scaleFactor = getRandomNumber(50, 100) / 100; // Zufälliger Skalierungsfaktor zwischen 0.5 und 1.0
-            var div = document.createElement('div');
-            div.className = 'random-div';
-            div.style.width = img.width * scaleFactor + 'px';
-            div.style.height = img.height * scaleFactor + 'px';
-            document.body.appendChild(div); // Temporär hinzufügen, um getBoundingClientRect zu verwenden
+        var scaleFactor = getRandomNumber(50, 100) / 100; // Zufälliger Skalierungsfaktor zwischen 0.5 und 1.0
+        var div = document.createElement('div');
+        div.className = 'random-div';
+        div.style.width = img.width * scaleFactor + 'px';
+        div.style.height = img.height * scaleFactor + 'px';
+        document.body.appendChild(div); // Temporär hinzufügen, um getBoundingClientRect zu verwenden
+        div.appendChild(img); // Move this line before setting the onload event of the img element
 
+        img.onload = function () {
             var windowWidth = window.innerWidth;
             var windowHeight = window.innerHeight;
 
@@ -100,6 +101,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             };
 
             var overlap, x, y;
+            var maxTries = 10;
+            var tries = 0;
+
             do {
                 overlap = false;
                 var columnIndex = getRandomNumber(0, gridColumns - 1);
@@ -116,33 +120,65 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         break;
                     }
                 }
-            } while (overlap || (x + img.width * scaleFactor > narratorExclusionZone.x && y + img.height * scaleFactor > narratorExclusionZone.y));
 
-            div.appendChild(img);
+                tries++
+                if (tries === maxTries) {
+                    console.warn('Maximum tries reached. Aborting placement of div.');
+                    document.body.removeChild(div);
+                    break;
+                }
+            } while (overlap || (x + img.width * scaleFactor > narratorExclusionZone.x && y + img.height * scaleFactor > narratorExclusionZone.y));
 
             if (index === redirectToIndex) {
                 var link = document.createElement('div');
                 link.className = 'right-download';
-                //link.href = '';
-                link.appendChild(div.cloneNode(true));
+
+                var buttonColors = ['#FF0000', '#3BB143', '#006FB9'];
+                var buttonColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
+
+                var button = document.createElement('button');
+                button.textContent = 'Download';
+                button.style.backgroundColor = buttonColor; // Set the background color to the random color
+                button.style.color = 'white';
+                button.style.padding = '15px 50px';
+                button.style.border = 'none';
+                button.style.borderRadius = '23px';
+                button.style.cursor = 'pointer';
+                button.style.fontSize = '30px';
+                button.style.fontFamily = '"Inter-Regular", Helvetica';
+                button.style.border = '3px ridge grey';
+                button.style.transition = 'background-color 0.3s ease';
+                button.style.position = 'relative'; // Set the position property to relative
+                button.style.zIndex = 1;
+                button.addEventListener("mouseover", function () {
+                    button.style.backgroundColor = '#544C4A';
+                });
+                button.addEventListener("mouseout", function () {
+                    button.style.backgroundColor = buttonColor;
+                });
+                var randomDivClone = div.cloneNode(false); // Clone the div without children
+                randomDivClone.appendChild(button); // Append the button to the cloned "random-div" element
+                link.appendChild(randomDivClone);
                 document.body.appendChild(link);
-                document.body.removeChild(div);
+                var buttonWidth = button.offsetWidth;
+                var buttonHeight = button.offsetHeight;
+                randomDivClone.style.width = buttonWidth + 'px'
+                randomDivClone.style.height = buttonHeight + 'px'
                 link.addEventListener("click", function () {
                     rightDownloadclicked = true;
-                    showDownloadList();
-                    setTimeout(() => {
-                        chooseRandomTask();
-                    }, 8000);
+                    showDownloadList(showDownloadList, chooseRandomTask);
                 });
+                document.body.removeChild(div); // Move this line after adding the event listener
             } else {
+                div.appendChild(img);
                 divs.push(div);
-                div.addEventListener("click", showDownloadList);
+                document.body.appendChild(div);
             }
         };
     }
 
     // Erstellen Sie 10 zufällige divs und übergeben Sie den aktuellen Index
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 20; i++) {
         createRandomDiv(i);
     }
     //////////////////////////////// NARRATOR CODE ////////////////////////////////

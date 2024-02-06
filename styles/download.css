@@ -32,7 +32,6 @@ body {
 
 .random-div {
     position: absolute;
-    border: 1px solid #000;
     display: inline-block;
     overflow: hidden;
     /* Verhindert das Überlaufen von Inhalten */
@@ -45,10 +44,11 @@ body {
     /* Höhe passt sich automatisch an, um das Seitenverhältnis zu bewahren */
     display: block;
     /* Entfernt zusätzlichen Freiraum unter dem Bild */
+    cursor: pointer;
 }
 
 .right-download {
-    cursor: pointer;
+    z-index: 1001;
 }
 
 .download-list {
