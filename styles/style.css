@@ -291,11 +291,11 @@ button:hover {
     opacity: 0;
     color: #FFF;
     font-family: "Inter-Regular", Helvetica;
-    font-size: 18px;
+    font-size: 17px;
     text-transform: uppercase;
     margin: 0 0 0 20px;
     padding: 0;
-    transform: translateY(25px);
+    transform: translateX(25px);
     animation:  slideUnlock 800ms ease-in-out 2500ms,
                 closeSlideUnlock 800ms ease-in-out 5000ms;
     animation-fill-mode: forwards;
@@ -360,22 +360,30 @@ button:hover {
 @keyframes slideUnlock {
     0% {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateX(-15px);
+    }
+    80% {
+        opacity: 80;
+        transform: translateX(5px);
     }
     100% {
         opacity: 100;
-        transform: translateY(0px);
+        transform: translateX(0px);
     }
 }
 
 @keyframes closeSlideUnlock {
     0% {
         opacity: 100;
-        transform: translateY(0px);
+        transform: translateX(0px);
+    }
+    80% {
+        opacity: 20;
+        transform: translateX(-5px);
     }
     100% {
         opacity: 0;
-        transform: translateY(-25px);
+        transform: translateX(20px);
     }
 }
 
