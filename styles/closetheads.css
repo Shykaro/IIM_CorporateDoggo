@@ -21,6 +21,7 @@ body {
     height: 100%;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .ad-close-x {
@@ -28,9 +29,10 @@ body {
     top: 5px;
     right: 5px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     opacity: 0.3;
+
 }
 
 .ad-close-x:hover {
@@ -39,11 +41,13 @@ body {
 
 .ad-close-x:before, .ad-close-x:after {
     position: absolute;
-    left: 10px;
-    content: ' ';
-    height: 21px;
-    width: 2px;
+    left: 0px;
+    top: 15px;
+    content: '';
+    height: 4px;
+    width: 46px;
     background-color: #333;
+    border-radius: 5px;
 }
 
 .ad-close-x:before {
@@ -52,4 +56,9 @@ body {
 
 .ad-close-x:after {
     transform: rotate(-45deg);
+}
+
+.ad-video {
+    width: 100%;
+    height: 100%;
 }

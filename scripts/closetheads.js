@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var movingAd = document.createElement('div');
     movingAd.className = 'moving-ad';
     movingAd.id = 'ad-' + adNumber;
+    movingAd.style = 'z-index: ' + adNumber + ';';
 
     var innerAd = document.createElement('div');
     innerAd.className = 'inner-ad';
@@ -26,11 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var adClose = document.createElement('div');
     adClose.className = 'ad-close-x';
+    adClose.style = 'z-index: ' + adNumber + 1 + ';';
 
     innerAd.appendChild(adClose);
     innerAd.appendChild(adVideo);
     movingAd.appendChild(innerAd);
     document.body.appendChild(movingAd);
+
+    adVideo.muted = true;
+    adVideo.loop = true;
 
     adVideo.play().catch(e => {
       console.error('Fehler beim Abspielen des Videos: ', e);
@@ -75,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var div = createMovingAds(i);
 
     //Aspect Ratio for the created divs
-    var aspectRatioWidth = 4;
-    var aspectRatioHeight = 3;
+    var aspectRatioWidth = 1280;
+    var aspectRatioHeight = 720;
 
     //Min and Max sizes for the ad divs
     var min = 300;
@@ -93,8 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.left = x + 'px';
     div.style.top = y + 'px';
 
-    var speedX = getRandomNumber(1, 2) * (Math.random() < 0.5 ? 1 : -1);
-    var speedY = getRandomNumber(1, 2) * (Math.random() < 0.5 ? 1 : -1);
+    var speedX = getRandomNumber(1, 1.5) * (Math.random() < 0.5 ? 1 : -1);
+    var speedY = getRandomNumber(1, 1.5) * (Math.random() < 0.5 ? 1 : -1);
+    /* speedX = 0;
+    speedY = 0; */
 
     moveDiv(div, speedX, speedY);
   }
