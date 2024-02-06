@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   enterFullScreen(document.documentElement); // für den gesamten Tab
 
   var allMovingAdsArray = [];
+  const allVideosArray = ['img/Werbevideos/Waschmaschine_werbung.mp4'];
+  const allImagesArray = ['img/MemoryPics/img6.png', 'img/MemoryPics/img3.png', 'img/happy_company_logo_cut.png'];
 
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
@@ -21,9 +23,21 @@ document.addEventListener('DOMContentLoaded', () => {
     var innerAd = document.createElement('div');
     innerAd.className = 'inner-ad';
 
-    var adVideo = document.createElement('video');
-    adVideo.className = 'ad-video';
-    adVideo.src = 'img/Werbevideos/Waschmaschine_werbung.mp4';
+    var randomVidOrImg = Math.round(Math.random());
+    if (randomVidOrImg == 1) {
+      var randomVid = Math.floor(Math.random() * allVideosArray.length);
+      var adVideo = document.createElement('video');
+      adVideo.className = 'ad-video';
+      adVideo.src = allVideosArray[randomVid];
+
+      adVideo.muted = true;
+      adVideo.loop = true;
+    } else {
+      var randomImg = Math.floor(Math.random() * allImagesArray.length);
+      var adVideo = document.createElement('img');
+      adVideo.className = 'ad-img';
+      adVideo.src = allImagesArray[randomImg];
+    }
 
     var adClose = document.createElement('div');
     adClose.className = 'ad-close-x';
@@ -34,19 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
     movingAd.appendChild(innerAd);
     document.body.appendChild(movingAd);
 
-    adVideo.muted = true;
-    adVideo.loop = true;
+    if (randomVidOrImg == 1) {
+      adVideo.play().catch(e => {
+        console.error('Fehler beim Abspielen des Videos: ', e);
+      });
+    }
 
-    adVideo.play().catch(e => {
-      console.error('Fehler beim Abspielen des Videos: ', e);
-    });
 
     allMovingAdsArray.push(movingAd);
 
     //Ad event listener for closing the ads
     adClose.addEventListener('click', () => {
       console.log('Close Btuuon cicken')
-      document.body.removeChild(document.getElementById('ad-'+adNumber));
+      document.body.removeChild(document.getElementById('ad-' + adNumber));
       allMovingAdsArray.pop();
       console.log('MovingAds Array:' + allMovingAdsArray + 'length:' + allMovingAdsArray.length)
 
@@ -54,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (allMovingAdsArray.length == 0) {
         chooseRandomTask();
       }
-  });
+    });
 
     return movingAd;
   }
@@ -89,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var width = getRandomNumber(min, max);
     var height = (width / aspectRatioWidth) * aspectRatioHeight;
-    
+
     var x = getRandomNumber(0, window.innerWidth - width);
     var y = getRandomNumber(0, window.innerHeight - height);
 
