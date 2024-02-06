@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         newText.classList.add("typewriter");
         scrollContainer.appendChild(newText);
 
-        typeWriter(newText, textList[currentTextIndex], function() {
+        typeWriter(newText, textList[currentTextIndex], function () {
           // Callback-Funktion, wenn Typewriter fertig ist
           isTyping = false; // Setzt isTyping zurück, wenn die Animation abgeschlossen ist
           if (currentTextIndex === textList.length - 1) {
@@ -42,7 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
 
-        updateScrollbar();
+        // Create a new MutationObserver
+        const observer = new MutationObserver(entries => {
+          // If new text has been added
+          if (entries[0].addedNodes.length > 0) {
+            updateScrollbar();
+          }
+        });
+
+        // Configure the observer to watch for changes in the `scrollContainer` element
+        observer.observe(scrollContainer, { childList: true, subtree: true });
         currentTextIndex++;
         isTyping = true; // Setzt isTyping, während die Animation läuft
       }
@@ -57,17 +66,18 @@ document.addEventListener("DOMContentLoaded", function () {
         element.innerHTML += text.charAt(index);
       }
       index++;
-      setTimeout(function() {
+      setTimeout(() => {
         typeWriter(element, text, callback, index, speed);
       }, speed);
     } else if (callback) {
       callback();
+      updateScrollbar(); // Update the scrollbar after new text has been added
     }
   }
 
   function handleSpecialAction() {
-    setTimeout(function() {
-        window.location.href = './formular.html'; // Ziel-URL
+    setTimeout(function () {
+      window.location.href = './formular.html'; // Ziel-URL
     }, 3000); // Verzögerung vor der Weiterleitung
   }
 
