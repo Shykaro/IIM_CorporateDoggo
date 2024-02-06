@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     var images = ['./img/Malware_anzeige.png', './img/Upload_green_old.png', './img/Download_red_old.png', './img/Download_blue_old.png', './img/Upload_purple_old.png'];
     var divs = []; // Array zum Speichern der erstellten divs
+    const downloadNamesArray = ['malware.exe', 'anti-virus.exe', 'ghx44sfe_53x.msi', '16kVideoDownloader.exe', 'maxthedog.png.exe']
+    var downloadListlength = 0;
+    var finishedDownloadListLength = 0;
+    var rightDownloadclicked = false;
 
     // Function to get a random number within a range
     function getRandomNumber(min, max) {
@@ -25,6 +29,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
             rect1.top < rect2.bottom &&
             rect1.bottom > rect2.top
         );
+    }
+
+    function showDownloadList() {
+        const downloadList = document.getElementById('download-list-id');
+        const allDownloads = document.getElementById('all-downloads-id');
+
+        downloadList.classList.add('download-list-shown');
+
+        var newDownload = document.createElement('li');
+        var downloadName = document.createElement('span');
+
+        if (rightDownloadclicked == true) {
+            downloadName.textContent = 'max-finanz-software.exe';
+        } else {
+            var randomDownloadName = Math.floor(Math.random() * downloadNamesArray.length);
+            downloadName.textContent = downloadNamesArray[randomDownloadName];
+        }
+
+        var downloadIcon = document.createElement('img');
+
+
+        downloadIcon.setAttribute('src', 'img/downloads_icon.png');
+
+        newDownload.appendChild(downloadName);
+        newDownload.appendChild(downloadIcon);
+        allDownloads.appendChild(newDownload);
+
+        downloadListlength++;
+        /* console.log('finishedDownloadListLength' + finishedDownloadListLength)
+        console.log('downloadListlength' + downloadListlength) */
+
+        setTimeout(() => {
+            finishedDownloadListLength++;
+            if (downloadListlength == finishedDownloadListLength) {
+                downloadList.classList.remove('download-list-shown');
+            }
+        }, 10000);
     }
 
     var redirectToIndex = getRandomNumber(0, 9); // Wählt einen Index von 0 bis 9
@@ -86,9 +127,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 link.appendChild(div.cloneNode(true));
                 document.body.appendChild(link);
                 document.body.removeChild(div);
-                link.addEventListener("click", chooseRandomTask);
+                link.addEventListener("click", function () {
+                    rightDownloadclicked = true;
+                    showDownloadList();
+                    setTimeout(() => {
+                        chooseRandomTask();
+                    }, 8000);
+                });
             } else {
                 divs.push(div);
+                div.addEventListener("click", showDownloadList);
             }
         };
     }
