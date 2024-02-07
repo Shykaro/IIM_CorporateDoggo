@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
     speechBubble.innerHTML = '';
     typeWriter(speechBubble, tempText);
@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Hey, vielen Dank, dass du Max helfen möchtest! Hier hast du zur Belohnung einen Cookie.", 8000);

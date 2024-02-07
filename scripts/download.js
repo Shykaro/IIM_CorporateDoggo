@@ -13,22 +13,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     var finishedDownloadListLength = 0;
     var rightDownloadclicked = false;
 
-    // Function to get a random number within a range
+    // Fürs Randomizen der Images die verwendet werden
     function getRandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    // Function to check if two divs overlap
-    function doDivsOverlap(div1, div2) {
-        var rect1 = div1.getBoundingClientRect();
-        var rect2 = div2.getBoundingClientRect();
-
-        return (
-            rect1.left < rect2.right &&
-            rect1.right > rect2.left &&
-            rect1.top < rect2.bottom &&
-            rect1.bottom > rect2.top
-        );
     }
 
     function showDownloadList() {
@@ -68,9 +55,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }, 10000);
     }
 
-    var redirectToIndex = getRandomNumber(0, 9); // Wählt einen Index von 0 bis 9
+    var redirectToIndex = getRandomNumber(0, 9);
 
-    // Function to create a random div
     // Funktion zum Erstellen eines zufälligen div
     function createRandomDiv(index) {
         var img = new Image();
@@ -99,7 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 var button = document.createElement('button');
                 button.textContent = 'Download';
-                button.style.backgroundColor = buttonColor; // Set the background color to the random color
+                button.style.backgroundColor = buttonColor; // Setzt random Background color
                 button.style.color = 'white';
                 button.style.padding = '15px 50px';
                 button.style.border = 'none';
@@ -109,7 +95,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 button.style.fontFamily = '"Inter-Regular", Helvetica';
                 button.style.border = '3px ridge grey';
                 button.style.transition = 'background-color 0.3s ease';
-                button.style.position = 'relative'; // Set the position property to relative
+                button.style.position = 'relative'; // Muss relative/absolut sein wegen zIndex
                 button.style.zIndex = 1;
                 button.addEventListener("mouseover", function () {
                     button.style.backgroundColor = '#544C4A';
@@ -117,8 +103,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 button.addEventListener("mouseout", function () {
                     button.style.backgroundColor = buttonColor;
                 });
-                var randomDivClone = div.cloneNode(false); // Clone the div without children
-                randomDivClone.appendChild(button); // Append the button to the cloned "random-div" element
+                var randomDivClone = div.cloneNode(false); // Clone ohne childs
+                randomDivClone.appendChild(button); // button an cloned div hängen
                 link.appendChild(randomDivClone);
                 document.body.appendChild(link);
                 var buttonWidth = button.offsetWidth;
@@ -151,7 +137,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         img.src = randomImage;
     }
 
-    
+    //Erstellung nur für den Right-Download Button
     function createRightDownloadButton(div, x, y) {
         var link = document.createElement('div');
         link.className = 'right-download';
@@ -201,7 +187,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const characterIcon = document.getElementById('character-icon');
     const speechBubble = document.getElementById('speech-bubble');
 
-    // Funktion, um die Speechbubble anzuzeigen
+    // Speechbubble anzeigen
     function showBubble(tempText, duration) {
         speechBubble.innerHTML = '';
         typeWriter(speechBubble, tempText);
@@ -215,11 +201,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             setTimeout(() => {
                 speechBubble.classList.remove('visible');
                 speechBubble.style.animation = ''; // Setzt Animation zurück
-            }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+            }, 500); // Warten auf Ausblend-Animation
         }, duration);
     }
 
-    // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+    // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
     function updateBubbleText() {
         setTimeout(() => {
             showBubble("Max braucht eine Software für seine Finanzen. Hilf Max den richtigen Button zu finden.", 8000);

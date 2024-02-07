@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeButton) {
     closeButton.addEventListener('click', () => {
       const videoPopup = document.getElementById('videoPopup');
-      const videoElement = document.getElementById('adVideo'); // Stellen Sie sicher, dass das Video-Element hier erneut referenziert wird
+      const videoElement = document.getElementById('adVideo'); //erneute referenzierung
 
       if (videoPopup) {
         videoPopup.style.display = 'none';
         if (videoElement) {
           console.log("Schließbutton wurde geklickt, versuche Video zu pausieren.");
-          videoElement.pause(); // Versuche, das Video anzuhalten
+          videoElement.pause(); //Video anhalten
           videoElement.currentTime = 0;
         } else {
           console.error("Video-Element wurde nicht gefunden.");
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bounds = closeButton.getBoundingClientRect();
     const modalBounds = modalContent.getBoundingClientRect();
-    const distance = 50; // Distanz, in der der Button reagieren soll
+    const distance = 50; // Distanz ab wann X ausweicht
 
     if (event.clientX < bounds.right + distance && event.clientX > bounds.left - distance &&
       event.clientY < bounds.bottom + distance && event.clientY > bounds.top - distance) {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
     speechBubble.innerHTML = '';
     typeWriter(speechBubble, tempText);
@@ -103,11 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Max hat sich verlaufen. Helfe Max aus dem Labyrinth!", 3000);

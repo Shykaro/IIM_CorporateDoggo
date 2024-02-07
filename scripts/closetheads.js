@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     allMovingAdsArray.push(movingAd);
 
-    //Ad event listener for closing the ads
+    //Ad event listener fürs schließen der Ads
     adClose.addEventListener('click', () => {
       console.log('Close Btuuon cicken')
       document.body.removeChild(document.getElementById('ad-' + adNumber));
       allMovingAdsArray.pop();
       console.log('MovingAds Array:' + allMovingAdsArray + 'length:' + allMovingAdsArray.length)
 
-      //Go to other task when all ads were closed
+      //Weiterleitung wenn alle geschlossen wurden
       if (allMovingAdsArray.length == 0) {
         chooseRandomTask();
       }
@@ -93,11 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < 10; i++) {
     var div = createMovingAds(i);
 
-    //Aspect Ratio for the created divs
+    //Aspect Ratio für die Ad Divs
     var aspectRatioWidth = 1280;
     var aspectRatioHeight = 720;
 
-    //Min and Max sizes for the ad divs
+    //Min und Max größen für die selben divs
     var min = 300;
     var max = 600;
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
     speechBubble.innerHTML = '';
     typeWriter(speechBubble, tempText);
@@ -140,11 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Schnell, schließe die Werbeanzeigen!", 3000);

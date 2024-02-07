@@ -35,25 +35,25 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollContainer.appendChild(newText);
 
         typeWriter(newText, textList[currentTextIndex], function () {
-          // Callback-Funktion, wenn Typewriter fertig ist
-          isTyping = false; // Setzt isTyping zurück, wenn die Animation abgeschlossen ist
+          // Callback-Funktion nach Typewriter
+          isTyping = false; // Setze isTyping zurück wenn die Animation abgeschlossen ist
           if (currentTextIndex === textList.length - 1) {
             handleSpecialAction();
           }
         });
 
-        // Create a new MutationObserver
+        // Neuer MutationObserver
         const observer = new MutationObserver(entries => {
-          // If new text has been added
+          // Wenn neuer Text hinzugefügt wurde, update Bar
           if (entries[0].addedNodes.length > 0) {
             updateScrollbar();
           }
         });
 
-        // Configure the observer to watch for changes in the `scrollContainer` element
+        // CSchaut nach Änderungen
         observer.observe(scrollContainer, { childList: true, subtree: true });
         currentTextIndex++;
-        isTyping = true; // Setzt isTyping, während die Animation läuft
+        isTyping = true; // Setzt isTyping während die Animation läuft
       }
     }
   }
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, speed);
     } else if (callback) {
       callback();
-      updateScrollbar(); // Update the scrollbar after new text has been added
+      updateScrollbar(); // Updates Scrollbar nach added Text
     }
   }
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
 
     speechBubble.innerHTML = '';
@@ -104,11 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Falls dir die AGB nicht gefallen, lies sie einmal durch um sie abzulehnen.", 8000);
