@@ -57,12 +57,14 @@ body {
     right: 30px;
     width: 300px;
     height: fit-content;
+    max-height: 50%;
     background-color: rgb(226, 235, 235);
     border-radius: 10px;
     z-index: 0;
     padding: 10px;
     opacity: 0%;
     transition: ease-in-out 500ms;
+    overflow-y: auto;
 }
 .download-list-shown {
     top: 10px;
