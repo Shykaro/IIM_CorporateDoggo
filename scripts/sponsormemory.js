@@ -49,10 +49,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         secondCard = this;
         if (!img1Found2 && this.querySelector('.card-front').style.backgroundImage.includes('img1.png') && firstCard.innerHTML === secondCard.innerHTML) {
             img1Found2 = true; // Setzen des Zustands auf true
-            if(img1Found && img1Found2){
-            setTimeout(() => { // Weiterleitung nach einer kurzen Verzögerung
-              chooseRandomTask();
-            }, 3000);}
+            setTimeout(() => {
+              showSuccessMessage(); //Erfolgsmeldung
+              // weitere Verzögerung für die Weiterleitung
+              setTimeout(() => {
+                  chooseRandomTask(); // Weiterleitung
+              }, 2500);
+          }, 1000);
         }
 
         checkForMatch();
@@ -62,6 +65,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let isMatch = firstCard.innerHTML === secondCard.innerHTML;
         isMatch ? disableCards() : unflipCards();
     }
+
+    function showSuccessMessage() {
+      const successMessage = document.createElement('div');
+      successMessage.setAttribute('id', 'success-message');
+      successMessage.style.position = 'fixed';
+      successMessage.style.top = '50%';
+      successMessage.style.left = '50%';
+      successMessage.style.transform = 'translate(-50%, -50%)';
+      successMessage.style.backgroundColor = '#5781ff';
+      successMessage.style.padding = '20px';
+      successMessage.style.zIndex = '100';
+      successMessage.style.color = '#fff';
+      successMessage.style.fontSize = '1.5rem';
+      successMessage.style.borderRadius = '10px';
+      successMessage.style.fontFamily = '"Pacifico", Helvetica';
+      successMessage.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+      successMessage.innerText = 'Hurra, du hast Max gefunden!';
+  
+      document.body.appendChild(successMessage);
+  
+      // Entferne die Nachricht nach einigen Sekunden, um die Weiterleitung vorzubereiten
+      setTimeout(() => {
+          document.body.removeChild(successMessage);
+      }, 3000); // 2.5 Sekunden, kurz vor der Weiterleitung
+  }
 
     function disableCards() {
         firstCard.removeEventListener('click', flipCard);
