@@ -20,62 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const scrollStep5 = 230;
     const scrollStepLast = 280;
 
-    let isAnimating = false;
-    var scrollStep = 0;
-
     window.scrollTo(0, 0);
 
     window.addEventListener("scroll", setScrollVar);
     window.addEventListener("resize", setScrollVar);
-
-    // Listen for wheel events to detect scrolling
-    document.addEventListener('wheel', function (event) {
-        if (!isAnimating) {
-            if (event.deltaY > 0 && window.scrollY === 0) {
-                // Scroll down and start animation if scrolled down enough
-                console.log('scroll down')
-                startAnimation('down');
-            } else if (event.deltaY < 0 && window.scrollY === 0) {
-                // Scroll up and start animation if scrolled up to the top
-                console.log('scroll up')
-                startAnimation('up');
-            }
-        }
-    });
-
-    function startAnimation(direction) {
-        isAnimating = true;
-
-        if (direction == 'down') {
-            // Move the first container based on the scroll direction
-            container1.style.transform = direction === 'down' ? 'translateX(-100%)' : 'translateX(0)';
-
-            // Move the second container based on the scroll direction
-            container2.style.transform = direction === 'down' ? 'translateX(0)' : 'translateX(100%)';
-
-            if (scrollStep != 5) {
-                scrollStep++;
-            }
-            console.log('scrollStep: ' + scrollStep)
-        } else {
-            // Move the first container based on the scroll direction
-            container1.style.transform = direction === 'up' ? 'translateX(0)' : 'translateX(-100%)';
-
-            // Move the second container based on the scroll direction
-            container2.style.transform = direction === 'up' ? 'translateX(100%)' : 'translateX(0)';
-
-            if (scrollStep != 0) {
-                scrollStep--;
-            }
-            console.log('scrollStep: ' + scrollStep)
-        }
-
-        isAnimating = false;
-    }
-
-    function moveContainer() {
-
-    }
 
     function setScrollVar() {
         const htmlElement = document.documentElement;
@@ -190,48 +138,4 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     setScrollVar();
-
-    const zoom = document.querySelector('.zoom');
-    const minZoom = 1;
-    const maxZoom = 2;
-
-    /* addEventListener('scroll', e => {
-        /* const vh = window.innerHeight / 100;
-        const scrollTop = document.documentElement.scrollTop;
-        const start = 50 * vh;
-        const stop = 150 * vh;
-        if (scrollTop > start && scrollTop < stop) {
-            //const scale = Math.max(2.2 - (scrollTop - start) / 500, 1);
-            //zoom.style.transform = `scale(${scale})`;
-            const distance = (scrollTop - start) / 10;
-            container1.style.left = `${((100 - distance) * -1)}%`;
-            var opacity = Math.max(100 - (scrollTop - start) / 500, 100);
-            container1.style.opacity = `${opacity}%`;
-        }
-
-        if (scrollTop > (20 * vh) && scrollTop < (80 * vh)) {
-            var h1Scale = Math.max(1.7 - (scrollTop - start) / 500, 1);
-            var h1Top = (scrollTop - start) / 10;
-            werHeader.style.transform = `scale(${h1Scale})`;
-            werHeader.style.top = `${10 + h1Top}%`;
-        }
-
-        const vh = window.innerHeight / 100;
-        const scrollTop = document.documentElement.scrollTop;
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const startMoving = 0.2 * totalHeight;
-        const stopMoving = 0.8 * totalHeight;
-
-        // Move the element along with the scroll when 20% to 80% of the page is scrolled
-        if (scrollTop >= startMoving && scrollTop <= stopMoving) {
-            const distance = (scrollTop - startMoving) / (stopMoving - startMoving);
-            const topPosition = -30 + (distance * 20);
-            werHeader.style.top = `${topPosition}%`;
-        }
-
-        // After 80% of the page is scrolled, fix the element at -10%
-        if (scrollTop > stopMoving) {
-            werHeader.style.top = '-10%';
-        }
-    }) */
 });
