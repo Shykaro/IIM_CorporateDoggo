@@ -75,59 +75,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function createRandomDiv(index) {
         var img = new Image();
         var randomImage = images[getRandomNumber(0, images.length - 1)];
-        img.src = randomImage;
 
-        var scaleFactor = getRandomNumber(50, 100) / 100; // Zufälliger Skalierungsfaktor zwischen 0.5 und 1.0
         var div = document.createElement('div');
         div.className = 'random-div';
-        div.style.width = img.width * scaleFactor + 'px';
-        div.style.height = img.height * scaleFactor + 'px';
-        document.body.appendChild(div); // Temporär hinzufügen, um getBoundingClientRect zu verwenden
-        div.appendChild(img); // Move this line before setting the onload event of the img element
+        document.body.appendChild(div);
 
         img.onload = function () {
-            var windowWidth = window.innerWidth;
-            var windowHeight = window.innerHeight;
+            var scaleFactor = getRandomNumber(50, 100) / 100;
+            div.style.width = img.width * scaleFactor + 'px';
+            div.style.height = img.height * scaleFactor + 'px';
 
-            var gridColumns = 3;
-            var gridRows = 3;
-
-            var cellWidth = windowWidth / gridColumns;
-            var cellHeight = windowHeight / gridRows;
-
-            var narratorExclusionZone = {
-                x: window.innerWidth - 300, // Narrator-Breite anpassen
-                y: window.innerHeight - 300, // Narrator-Höhe anpassen
-            };
-
-            var overlap, x, y;
-            var maxTries = 10;
-            var tries = 0;
-
-            do {
-                overlap = false;
-                var columnIndex = getRandomNumber(0, gridColumns - 1);
-                var rowIndex = getRandomNumber(0, gridRows - 1);
-
-                x = columnIndex * cellWidth + getRandomNumber(0, cellWidth - img.width * scaleFactor);
-                y = rowIndex * cellHeight + getRandomNumber(0, cellHeight - img.height * scaleFactor);
-                div.style.left = x + 'px';
-                div.style.top = y + 'px';
-
-                for (var i = 0; i < divs.length; i++) {
-                    if (doDivsOverlap(div, divs[i])) {
-                        overlap = true;
-                        break;
-                    }
-                }
-
-                tries++
-                if (tries === maxTries) {
-                    console.warn('Maximum tries reached. Aborting placement of div.');
-                    document.body.removeChild(div);
-                    break;
-                }
-            } while (overlap || (x + img.width * scaleFactor > narratorExclusionZone.x && y + img.height * scaleFactor > narratorExclusionZone.y));
+            var x = getRandomNumber(0, window.innerWidth - parseInt(div.style.width));
+            var y = getRandomNumber(0, window.innerHeight - parseInt(div.style.height));
+            div.style.left = x + 'px';
+            div.style.top = y + 'px';
 
             if (index === redirectToIndex) {
                 var link = document.createElement('div');
@@ -164,21 +125,76 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 var buttonHeight = button.offsetHeight;
                 randomDivClone.style.width = buttonWidth + 'px'
                 randomDivClone.style.height = buttonHeight + 'px'
-                link.addEventListener("click", function () {
+                button.onclick = function () {
                     rightDownloadclicked = true;
-                    showDownloadList(showDownloadList, chooseRandomTask);
-                });
-                document.body.removeChild(div); // Move this line after adding the event listener
+                    showDownloadList();
+                    setTimeout(() => {
+                        chooseRandomTask();
+                    }, 8000);
+                };
+                link.appendChild(button);
+
+                // Bestimmen der Position des link Divs
+                link.style.position = 'absolute';
+                link.style.left = `${x}px`;
+                link.style.top = `${y}px`;
+                link.style.width = `${button.offsetWidth}px`;
+                link.style.height = `${button.offsetHeight}px`;
+                createRightDownloadButton(div, x, y);
+
             } else {
-                div.appendChild(img);
+                div.appendChild(img); // Bild wird angehängt
                 divs.push(div);
-                document.body.appendChild(div);
+                div.addEventListener("click", showDownloadList);
             }
         };
+        img.src = randomImage;
     }
 
-    // Erstellen Sie 10 zufällige divs und übergeben Sie den aktuellen Index
-    for (var i = 0; i < 20; i++) {
+    
+    function createRightDownloadButton(div, x, y) {
+        var link = document.createElement('div');
+        link.className = 'right-download';
+        link.style.position = 'absolute';
+        link.style.left = `${x}px`;
+        link.style.top = `${y}px`;
+
+        var buttonColors = ['#FF0000', '#3BB143', '#006FB9'];
+        var buttonColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
+
+        var button = document.createElement('button');
+        button.textContent = 'Download';
+        button.style.backgroundColor = buttonColor;
+        button.style.color = 'white';
+        button.style.padding = '15px 50px';
+        button.style.border = 'none';
+        button.style.borderRadius = '23px';
+        button.style.cursor = 'pointer';
+        button.style.fontSize = '30px';
+        button.style.fontFamily = '"Inter-Regular", Helvetica';
+        button.style.border = '3px ridge grey';
+        button.style.transition = 'background-color 0.3s ease';
+        button.style.zIndex = 10; // Stellt den Button nach vorne
+
+        button.addEventListener("mouseover", function () {
+            button.style.backgroundColor = '#544C4A';
+        });
+        button.addEventListener("mouseout", function () {
+            button.style.backgroundColor = buttonColor;
+        });
+        button.addEventListener("click", function () {
+            rightDownloadclicked = true;
+            showDownloadList();
+            setTimeout(() => {
+                chooseRandomTask();
+            }, 8000);
+        });
+
+        link.appendChild(button); // Button wird zum link div hinzugefügt
+        document.body.appendChild(link); // link div wird zum Dokument hinzugefügt
+    }
+
+    for (var i = 0; i < 30; i++) {
         createRandomDiv(i);
     }
     //////////////////////////////// NARRATOR CODE ////////////////////////////////
