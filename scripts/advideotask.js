@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const delay = 5000; // Verzögerung von 5 Sekunden
   const adVideoSources = [
     'img/Werbevideos/Pflanzen_shopping.mp4',
-    'img/Werbevideos/second_part_short.mp4',
+    //'img/Werbevideos/second_part_short.mp4',
     'img/Werbevideos/Waschmaschine_werbung.mp4',
-    'img/Werbevideos/Werbevideo.mp4'
+    //'img/Werbevideos/Werbevideo.mp4'
   ]
 
   setTimeout(() => {
