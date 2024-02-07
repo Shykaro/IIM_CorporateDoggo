@@ -1,53 +1,58 @@
-# IIM_CorporateDoggo
-Interactive Website Project for IIM
+1. Audiovisuelle Aufbereitung
+Screencast von einigen Seiten
+Wer ist Max (normale Benutzung)
+AGBs (neuer Text wird generiert)
+Narrator mit Sprechtext (drängt den Nutzer)
+Close the Ads (normales Spielen)
+Memory (normales spielen)
+Downloads (welche Programme alle runtergeladen werden)
+Teaser für das Labyrinth als Ende des Screencasts
 
-Todos:
-- Corporate Design bzw Web Page anordnung festlegen
-- Website grundstein erstellen (html, css und js)
-- Einzelne Steps (des Users) priorisieren und anfangen einzuprogrammieren
-- Werkschau Anmelden
-- Companion zum Durchführen ausarbeiten / idee zur Interessenweckung ausarbeiten
-- ...
+Effekte um den Rand oder auf dem Video, was es weichzeichnet und farbenfroher macht.
+Wie ein Trailer aufgebaut:
+Max seine traurige Geschichte
+Erkunde spannende Bereiche
+Schalte Belohnungen für Max frei
+In dem Interaktiven Erlebnis: “Hilf Max dem Hund!”
+in klein: “sponsored by the Happy Company”
 
+3D-Animation von einem Laptop bzw Bildschirm auf dem Max geöffnet ist.
 
-Ideas for Companion / Interesthook
-- "Save the corporate doggo" -> as hook. Companion will help you save the doggo step by step (by completing Company tasks)
-- ...
+2. Schriftliche Dokumentation
+Titel
+Hilf Max dem Hund! (sponsored by The Happy Company)
 
-Hier bitte die Priorisierung der Tasks einfügen, die Tasks werden dann nach unserer Prio umgesetzt. (Bsp1.: Wir haben beide Cookies auf 1, dann setzen wir auf jedenfall cookies schonmal um. Bsp2.: Ich werbebanner 9, du werbebanner 8, => unwichtig wird als eins der letzten umgesetzt, wenn die Zeit reicht):
+Foto
 
-Priorisierung der möglichen Tasks (Alex)
-1. “hier hast du als Belohnung einen Cookie -> (Alle akzeptieren)”
-2. Erstelle deinen Avatar/Formular ausfüllen
-3. Skip (gut versteckt) random Sponsoring
-4. Akzeptiere AGBs
-5. Newsletter Anmeldung
-6. Schau dir ein Werbevideo an
-7. Downloade etwas
-8. Umfrage ausfüllen (um Geld zu bekommen, das man nie bekommt)
-9. Werbebanner verdecken fast den ganzen Screen, irgendwo zustimmen, um Werbung wegzumachen
-10. ...
+Inhaltliche Beschreibung
+“Hilf Max dem Hund” ist eine interaktive Anwendung, welche sich mit möglichen Gefahren im Internet, also auf Webseiten, in Apps oder Spielen auseinandersetzt. Die Gefahren werden auf eine spielerische und überspitzte Art und Weise dargestellt, um den Nutzer darauf aufmerksam zu machen. Max und das Belohnungssystem dienen dabei als Lockmittel und Anreiz für den Nutzer, die Anwendung zu verwenden und sollen den Nutzer emotional an seine Aufgaben binden. Der Nutzer soll sich im Verlauf der Anwendung fragen, warum und für wen er diese Dinge überhaupt macht und was er alles dafür über sich ergehen lassen hat.
+Locktext für die Ausstellung:
+Unterstütze The Happy Company, indem du Max bei seinem Abenteuer begleitest. Meistere spannende Minispiele und schalte zusätzliche Power-Ups für Max frei. Schaffst du es, alle Erfolge freizuschalten und Max an sein Ziel zu bringen.
 
-Priorisierung der möglichen Tasks (Felix)
-1. Error Page? Eingabe um zurückzukommen
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
+Technische und methodische Beschreibung
+Die Anwendung wurde als Webseite mit HTML, CSS und Javascript umgesetzt. Damit lässt sich leicht ein Prototyp erstellen und es können alle benötigten Funktionen implementiert werden. Zu Beginn ist die Anwendung noch linear und folgt einer strikten Abfolge. Sobald der Nutzer zu den Aufgaben kommt, werden diese zufällig unendlich lange wiederholt.
+Die Interaktionsmöglichkeiten referieren auf herkömmliche Interaktionen für Webseiten und mit einer Maus und Tastatur an einem PC zu bedienen. So soll es jedem Nutzer möglich sein, ohne groß nachzudenken, die Anwendung zu verwenden.
+Ablauf der Entwicklung:
+Nachdem das Konzept und einige Ideen zur Anwendung fertig waren, wurden ein Prototyp und das Screendesign in Figma erstellt. Hier wurde sich auf den Stil der Anwendung festgelegt.
+Die verwendeten Bilder wurden durch KI (DALL-E) generiert und von Hand nachbearbeitet.
+Anschließend wurde das Grundgerüst der Webseite gebaut und die einzelnen Seiten sowie die Interaktionsmöglichkeiten und Animationen implementiert.
 
+Referenzen und Inspirationen
+Candy Crush
+Coin Master
+Chip.de Download-Seite
+Newsletter-Anmeldungen
+Dark Patterns (https://www.deceptive.design/)
+Portal 2
 
-Presentation:
-https://docs.google.com/presentation/d/1105-nsVjglXTFYe7GPZ3OENbF8G6tIHzFGUPT1iiFiI/edit#slide=id.p
-Figma:
-https://www.figma.com/file/X1O4FjI40UDYwAEHg5TKrX/HappyCorporate?node-id=22%3A11&mode=dev
+3. Code/Software
+Link zum Prototypen
+GitHub-Link: https://github.com/Shykaro/IIM_CorporateDoggo
+GitHub-Pages-Link: https://shykaro.github.io/IIM_CorporateDoggo/
+Quelldatei
+im Ordner bla bla bla
 
-Sourcematerial & References/Ideas:
-- https://www.youtube.com/watch?v=wX9Sc88qreg&list=PLE4D1C79527C91570 Valve - Aperture Investment Opportunity #4: "Boots"
-- https://youtube.com/shorts/8B20fRB78nA?si=Ml8SWtJn60Tm5cgO Fireship - 7 killer website features
-- https://youtube.com/shorts/VuOHfPp9Zxo?si=snvNDM10u2draxa- DesignerTom - Reacting to bad UI design part 3
-- https://youtube.com/shorts/E9JOenr0Hwk?si=C1w30Af80tEOWvkG Herr Programmierer - Diktierfunktion mit #JavaScript #tutorial #code #funktion
+Setup der Anwendung
+Die Anwendung ist für die Nutzung auf einem 16:9 Bildschirm an einem PC (Laptop oder Desktop) ausgelegt. Zur Verwendung benötigt der Nutzer eine Maus und Tastatur zur Eingabe und eine Webcam. Auf einem Smartphone, einem Tablet oder einem zu kleinen Bildschirm (kleiner als 15 Zoll) funktioniert die Anwendung nicht.
+Die optimale Erfahrung für den Benutzer bietet die Anwendung auf einer Ausstellung. Hierzu wird ein Schreibtisch aufgebaut und ähnlich zu einem Büro hergerichtet. Auch wird ein eingerahmtes Hundebild neben dem Schreibtisch, deutlich sichtbar für den Nutzer platziert.
+Durch die räumliche Gestaltung wird “Hilf Max dem Hund” zu einem richtigen Erlebnis.
