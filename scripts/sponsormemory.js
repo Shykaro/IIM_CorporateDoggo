@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     createRewardSystem();
     rewardSystemFunctionality();
     addCoins();
-    enterFullScreen(document.documentElement); // für den gesamten Tab
+    //enterFullScreen(document.documentElement); // für den gesamten Tab
 
 
     let cards = ['./img/MemoryPics/img1.png', './img/MemoryPics/img2.png', './img/MemoryPics/img3.png', './img/MemoryPics/img4.png', './img/MemoryPics/img5.png', './img/MemoryPics/img6.png']; // 6 unique images
     let game = document.getElementById('memory-game');
 
-    // Duplicate, shuffle and create cards
+    // Duplicate shuffle and create cards
     cards = [...cards, ...cards];
     cards.sort(() => 0.5 - Math.random());
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let hasFlippedCard = false;
     let lockBird = false;
     let firstCard, secondCard;
-    let img1Found = false; // Neue Zustandsvariable
+    let img1Found = false; 
     let img1Found2 = false;
 
     function flipCard() {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         this.classList.toggle('flip');
 
-        // Überprüfung, ob img1.png auf dieser Karte ist, wenn noch nicht gefunden
+        // Überprüfung, ob img1.png auf dieser Karte ist
         if (!img1Found && this.querySelector('.card-front').style.backgroundImage.includes('img1.png')) {
             img1Found = true; // Setzen des Zustands auf true
         }
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             img1Found2 = true; // Setzen des Zustands auf true
             if(img1Found && img1Found2){
             setTimeout(() => { // Weiterleitung nach einer kurzen Verzögerung
-              chooseRandomTask(); // Ersetzen Sie dies mit der URL Ihrer Zielseite
+              chooseRandomTask();
             }, 3000);}
         }
 
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
     speechBubble.innerHTML = '';
     typeWriter(speechBubble, tempText);
@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Scheint als hätte sich Max versteckt. Finde Ihn indem du die Karten umdrehst.", 7000);

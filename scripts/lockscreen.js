@@ -10,6 +10,6 @@ function enterFullScreen(element) {
     }
   }
   
-  // Rufen Sie diese Funktion irgendwo in Ihrem Code auf, z. B. nach einem Button-Klick:
+  // Funktioniert atm leider nicht -> use Kiosk mode in Chrome instead
   
 //document.addEventListener('contextmenu', event => event.preventDefault());

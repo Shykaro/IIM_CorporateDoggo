@@ -89,12 +89,12 @@ function createRewardSystem() {
     arrowSvg.appendChild(arrowPath);
     rewardsArrow.appendChild(arrowSvg);
 
-    // Append elements to rewards header
+    // Add elements to rewards header
     rewardsHeader.appendChild(trophyImage);
     rewardsHeader.appendChild(rewardsHeadline);
     rewardsHeader.appendChild(rewardsArrow);
 
-    // Append rewards header to body
+    // Add rewards header to body
     document.body.appendChild(rewardsHeader);
     ///////////////////////// END REWARDS HEADER ELEMENT ////////////////////////
 
@@ -149,10 +149,10 @@ function createRewardSystem() {
         rewardsList.appendChild(rewardItem);
     }
 
-    // Append rewards list to reward system container
+    // Add rewards list to reward system container
     rewardSystemContainer.appendChild(rewardsList);
 
-    // Append reward system container to body
+    // Add reward system container to body
     document.body.appendChild(rewardSystemContainer);
     ////////////////////////// END REWARDS ELEMENT ////////////////////////////
 
@@ -184,11 +184,11 @@ function createRewardSystem() {
     unlockTextWrap.appendChild(unlockText);
     unlockTextWrap.appendChild(unlockRewardTitle);
 
-    // Append elements to rewards header
+    // Add elements to rewards header
     rewardUnlocked.appendChild(unlockImage);
     rewardUnlocked.appendChild(unlockTextWrap);
 
-    // Append rewards header to body
+    // Add rewards header to body
     document.body.appendChild(rewardUnlocked);
     ////////////////// END NEW REWARD UNLOCKED ELEMENT /////////////////////
 
@@ -216,7 +216,7 @@ function createRewardSystem() {
     getCoinsDiv.appendChild(coinsImg);
     getCoinsDiv.appendChild(coinsHeadline);
 
-    // Append the div to the body or any other container element
+    // Add the div to the body or any other container element
     document.body.appendChild(getCoinsDiv);
     //////////////////// END GET COINS ELEMENT //////////////////////////
 }
@@ -304,16 +304,16 @@ function createNarrator() {
 
     characterIcon.appendChild(narratorImg);
 
-    // Create the speech-bubble div (initially hidden)
+    // Create the speech-bubble div (anfangs hidden)
     const speechBubble = document.createElement('div');
     speechBubble.id = 'speech-bubble';
     speechBubble.classList.add('hidden');
 
-    // Append the elements to the character-container
+    // Add the elements to the character-container
     characterContainer.appendChild(characterIcon);
     characterContainer.appendChild(speechBubble);
 
-    // Append the character-container to the document body
+    // Add the character-container to the document body
     document.body.appendChild(characterContainer);
 }
 //////////////////// END NARRATOR ELEMENT //////////////////////////
@@ -389,7 +389,7 @@ function chooseRandomTask() {
         // Save the updated coin count to local storage
         localStorage.setItem('lastTask', globalData.lastTask.toString());
 
-        // Use a switch statement to determine which HTML file to open based on the task
+        // switch statement to determine which HTML file to open based on the task
         switch (randomTask) {
             case 'advideotask':
                 setTimeout(() => {

@@ -15,16 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
   createRewardSystem();
   rewardSystemFunctionality();
   addCoins();
-  enterFullScreen(document.documentElement); // für den gesamten Tab
-  // Referenzen auf die Formularfelder und den Submit-Button
+  //enterFullScreen(document.documentElement); // für den gesamten Tab
+  // Referenzen für die Formularfelder und den Submit-Button
   const nameInput = document.getElementById('name');
   const ageInput = document.getElementById('age');
   const genderSelect = document.getElementById('gender');
   const submitButton = document.querySelector('.submit-btn');
 
-  // Funktion, um zu überprüfen, ob alle Felder ausgefüllt sind
+  // Funktion um zu schauen ob alle Felder ausgefüllt sind
   function checkFormInputs() {
-    // Prüft, ob jedes Feld einen Wert hat
+    // Checks every field
     const allFilled = nameInput.value && ageInput.value && genderSelect.value;
 
     // Aktiviert oder deaktiviert den Submit-Button
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('keyup', checkFormInputs);
   });
 
-  // Initialer Aufruf, um den Zustand des Submit-Buttons zu setzen
+  // setzt Zustand des Submit-Buttons
   checkFormInputs();
   //////////////////////////////// NARRATOR CODE ////////////////////////////////
   const characterIcon = document.getElementById('character-icon');
   const speechBubble = document.getElementById('speech-bubble');
 
-  // Funktion, um die Speechbubble anzuzeigen
+  // Speechbubble anzeigen
   function showBubble(tempText, duration) {
     speechBubble.innerHTML = '';
     typeWriter(speechBubble, tempText);
@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         speechBubble.classList.remove('visible');
         speechBubble.style.animation = ''; // Setzt Animation zurück
-      }, 500); // Warten, bis die Ausblend-Animation abgeschlossen ist
+      }, 500); // Warten auf Ausblend-Animation
     }, duration);
   }
 
-  // Funktion, um den Text zu verschiedenen Zeiten zu aktualisieren und die Speechbubble zu zeigen
+  // Beinhalteter Text, wie lang er angezeigt wird und der Timestamp wann er spawned
   function updateBubbleText() {
     setTimeout(() => {
       showBubble("Gib bitte deine Daten an, damit wir wissen, wer Max hilft. Vielleicht gibt es ja eine Belohnung.", 7000);

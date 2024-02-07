@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   createRewardSystem();
   rewardSystemFunctionality();
   addCoins();
-  enterFullScreen(document.documentElement); // für den gesamten Tab
+  //enterFullScreen(document.documentElement); // für den gesamten Tab
 
   var scrollContainer = document.querySelector('.rectangle-3');
   var customScrollbar = document.querySelector('.rectangle-2');

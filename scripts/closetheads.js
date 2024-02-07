@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   createRewardSystem();
   rewardSystemFunctionality();
   addCoins();
-  enterFullScreen(document.documentElement); // für den gesamten Tab
+  //enterFullScreen(document.documentElement); // für den gesamten Tab
 
   var allMovingAdsArray = [];
   const allVideosArray = ['img/Werbevideos/Waschmaschine_werbung.mp4'];
