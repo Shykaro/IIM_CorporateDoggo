@@ -22,7 +22,7 @@ in klein: “sponsored by the Happy Company”
 Titel
 Hilf Max dem Hund! (sponsored by The Happy Company)
 
-Foto
+[Foto]
 
 Inhaltliche Beschreibung
 “Hilf Max dem Hund” ist eine interaktive Anwendung, welche sich mit möglichen Gefahren im Internet, also auf Webseiten, in Apps oder Spielen auseinandersetzt. Die Gefahren werden auf eine spielerische und überspitzte Art und Weise dargestellt, um den Nutzer darauf aufmerksam zu machen. Max und das Belohnungssystem dienen dabei als Lockmittel und Anreiz für den Nutzer, die Anwendung zu verwenden und sollen den Nutzer emotional an seine Aufgaben binden. Der Nutzer soll sich im Verlauf der Anwendung fragen, warum und für wen er diese Dinge überhaupt macht und was er alles dafür über sich ergehen lassen hat.
@@ -49,8 +49,6 @@ Portal 2
 Link zum Prototypen
 GitHub-Link: https://github.com/Shykaro/IIM_CorporateDoggo
 GitHub-Pages-Link: https://shykaro.github.io/IIM_CorporateDoggo/
-Quelldatei
-im Ordner bla bla bla
 
 Setup der Anwendung
 Die Anwendung ist für die Nutzung auf einem 16:9 Bildschirm an einem PC (Laptop oder Desktop) ausgelegt. Zur Verwendung benötigt der Nutzer eine Maus und Tastatur zur Eingabe und eine Webcam. Auf einem Smartphone, einem Tablet oder einem zu kleinen Bildschirm (kleiner als 15 Zoll) funktioniert die Anwendung nicht.
